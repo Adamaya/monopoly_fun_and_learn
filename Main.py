@@ -143,3 +143,11 @@ def bonus(player, game_number):
         return 60
 
 
+# checks who is the owner of particular game
+def who_is_game_owner(game_number, player):
+    if game_owners[games_name_with_codes[game_number]] == None:
+        return player
+    else:
+        return game_owners[games_name_with_codes[game_number]]
+
+
