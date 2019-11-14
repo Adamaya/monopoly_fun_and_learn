@@ -1,7 +1,11 @@
 '''
+Project Name:Fun Monopoly
 Author: Adamaya Sharma
 last Modified: 14/11/2019
-Version: 1.1
+Version: 1.2.0
+
+Description; fun monopoly is a monopoly based game stimulation. there are total 27 blocks in this game 2 lottery,
+2 penalty,1 payday,1 bonus and rest are sub games.
 '''
 
 import random
@@ -93,6 +97,8 @@ def score_addition(player_number, game_name, game_owner, answer_status, lottery=
         players_scores[player_number] = players_scores[player_number] - penalty
     elif game_name == "bonus":
         players_scores[player_number] = players_scores[player_number] + bonus
+    elif game_name == "lottery":
+        players_scores[player_number] = players_scores[player_number] + lottery
 
     # if player gives the write answers then player is game owner
     if game_owner == player_number and answer_status == True:
@@ -150,6 +156,18 @@ def bonus(player, game_number):
         return 60
 
 
+# lottery
+def lottery(player):
+    lottery_number = random.randint(0, 25)
+    bidder_number = int(input("Enter the number between 1 and 25"))
+    if lottery_number == bidder_number:
+        score_addition(player, "lottery", "None", False, 500)
+        print("Player " + str(player) + " won the lottery!")
+    else:
+        score_addition(player, "lottery", "None", False, -100)
+        print("lottery number:", lottery_number, "\n better luck next time.")
+
+
 # checks who is the owner of particular game
 def who_is_game_owner(game_number, player):
     if game_owners[games_name_with_codes[game_number]] == None:
@@ -191,6 +209,12 @@ while True:
                 print("Bonus! of ", bonus(player, game_number))
                 last_game_by_player[player] = game_number
                 continue
+            elif game_number == 7:
+                update_remaining_chances(player, game_number, last_game_by_player[player])
+                lottery(player)
+                last_game_by_player[player] = game_number
+                continue
+
             game_owner = who_is_game_owner(game_number, player)
             score_addition(player, games_name_with_codes[game_number], game_owner, game_chooser(game_number))
             update_remaining_chances(player, game_number, last_game_by_player[player])
@@ -207,5 +231,5 @@ while True:
             counter = counter + 1
     if counter == number_of_players:
         for _ in range(1, number_of_players + 1):
-            print("Player "+str(number_of_players[_])+"score is "+str(players_scores[_]))
+            print("Player " + str(_) + "score is " + str(players_scores[_]))
         break
