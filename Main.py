@@ -120,3 +120,26 @@ def penalty(player, game_number):
         return 60
 
 
+def bonus(player, game_number):
+    bonus_points = [10, 20, 30, 40, 50, 60]
+    bonus_points_number = bonus_points[random.randint(0, 6)]
+    if game_number - last_game_by_player[player] == 1:
+        score_addition(player, "bonus", "None", False, 0, bonus_points_number, 0)
+        return bonus_points_number
+    elif game_number - last_game_by_player[player] == 2:
+        score_addition(player, "bonus", "None", False, 0, 20, 0)
+        return 20
+    elif game_number - last_game_by_player[player] == 3:
+        score_addition(player, "bonus", "None", False, 0, bonus_points_number, 0)
+        return bonus_points_number
+    elif game_number - last_game_by_player[player] == 4:
+        score_addition(player, "bonus", "None", False, 0, 40, 0)
+        return 40
+    elif game_number - last_game_by_player[player] == 5:
+        score_addition(player, "bonus", "None", False, 0, bonus_points_number, 0)
+        return bonus_points_number
+    elif game_number - last_game_by_player[player] == 6:
+        score_addition(player, "bonus", "None", False, 0, 60, 0)
+        return 60
+
+
