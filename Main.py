@@ -1,3 +1,9 @@
+'''
+Author: Adamaya Sharma
+last Modified: 14/11/2019
+Version: 1.0
+'''
+
 import random
 import PIL.Image
 import time
