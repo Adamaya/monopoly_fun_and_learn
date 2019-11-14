@@ -1,7 +1,7 @@
 '''
 Author: Adamaya Sharma
 last Modified: 14/11/2019
-Version: 1.0
+Version: 1.1
 '''
 
 import random
@@ -102,6 +102,7 @@ def score_addition(player_number, game_name, game_owner, answer_status, lottery=
     elif game_owner != player_number:
         players_scores[game_owner] = players_scores[game_owner] + (games_points[game_name] / 4)
 
+
 # defining penalty rules
 def penalty(player, game_number):
     penalty_points = [10, 20, 30, 40, 50, 60]
@@ -163,22 +164,32 @@ def update_remaining_chances(player, game_number, last_game):
     return players_remaining_chances[player]
 
 
+# main executing function
 while True:
     for player in range(1, number_of_players + 1):
         if players_remaining_chances[player] >= 0:
-            dice_number = int(input("Enter the Dice Number of player " + str(player) + " :"))
-            game_number=dice_number+last_game_by_player[player]
-            if game_number >= 28:
+            while True:
+                dice_number = int(input("Enter the Dice Number of player " + str(player) + " :"))
+                if 1 <= dice_number <= 6:
+                    break
+                else:
+                    print("Enter the valid Dice Number\n")
+            # converting dice to game board number
+            game_number = dice_number + last_game_by_player[player]
+            if game_number >= 27:
                 update_remaining_chances(player, game_number, last_game_by_player[player])
                 print("Player " + str(player) + " has completed his round")
+                last_game_by_player[player] = game_number
                 continue
             elif game_number == 4 or game_number == 18:
                 update_remaining_chances(player, game_number, last_game_by_player[player])
                 print("Penalty! of ", penalty(player, game_number))
+                last_game_by_player[player] = game_number
                 continue
             elif game_number == 11 or game_number == 18:
                 update_remaining_chances(player, game_number, last_game_by_player[player])
                 print("Bonus! of ", bonus(player, game_number))
+                last_game_by_player[player] = game_number
                 continue
             game_owner = who_is_game_owner(game_number, player)
             score_addition(player, games_name_with_codes[game_number], game_owner, game_chooser(game_number))
@@ -186,13 +197,15 @@ while True:
 
             last_game_by_player[player] = game_number
 
-
         else:
             continue
 
-    ifBreak = input("End game: Y or N")
-    if ifBreak.lower() == "y":
-        for i in range(1, number_of_players + 1):
-            print("Score of player " + str(i) + " is " + str(players_scores[i]))
-
+    # checking all the players have completed the 1 round completely
+    counter = 0
+    for values in last_game_by_player.values():
+        if values > 27:
+            counter = counter + 1
+    if counter == number_of_players:
+        for _ in range(1, number_of_players + 1):
+            print("Player "+str(number_of_players[_])+"score is "+str(players_scores[_]))
         break
