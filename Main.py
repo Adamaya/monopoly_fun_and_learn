@@ -43,3 +43,37 @@ for _ in range(1, number_of_players + 1):
     # players_details_email[_] = input("Enter Player " + str(_) + " Email")
 
 
+# game chooser function created
+def game_chooser(game_number):
+    if game_number == 1:
+        print("Game " + str(game_number) + ": Guess the Logo")
+        questions = ['connectivity.jpg', 'microsoft.png']
+        random_number = random.randint(0, 1)
+        image = PIL.Image.open(
+            "C:/Users/ADAMAYA SHARMA/PycharmProjects/monoply_fun_and_learn/Logo/" + questions[random_number])
+        image.show()
+        print("Answer: Image number " + str(random_number))
+        response = input("Answer is Correct or Wrong: \nY\t\tN")
+        if response.lower() == "y":
+            return True
+        elif response.lower() == "n":
+            return False
+
+    if game_number == 2:
+        print("Game " + str(game_number) + ": Guess the Music")
+        questions = ['Cool and Inspiring Background Music.mp3', 'Cool and Inspiring Background Music.mp3']
+        random_number = random.randint(0, 1)
+        mixer.init()
+        mixer.music.load(questions[random_number])
+        print("playing song " + str(random_number))
+        mixer.music.play()
+        time.sleep(30)
+        mixer.music.stop()
+
+        response = input("Answer is Correct or Wrong: \nY\t\tN")
+        if response.lower() == "y":
+            return True
+        elif response.lower() == "n":
+            return False
+
+
