@@ -77,3 +77,23 @@ def game_chooser(game_number):
             return False
 
 
+# adding game scores
+def score_addition(player_number, game_name, game_owner, answer_status, lottery=0, bonus=0, penalty=0):
+    games_points = {"guess_the_logo": 100, "who_is_who": 200}
+
+    if answer_status:
+        players_scores[player_number] = players_scores[player_number] + games_points[game_name]
+    elif game_name == "penalty":
+        players_scores[player_number] = players_scores[player_number] - penalty
+    elif game_name == "bonus":
+        players_scores[player_number] = players_scores[player_number] + bonus
+
+    # if player gives the write answers then player is game owner
+    if game_owner == player_number and answer_status == True:
+        game_owners[game_name] = player_number
+    elif game_owner == "None":
+        pass
+    elif game_owner != player_number:
+        players_scores[game_owner] = players_scores[game_owner] + (games_points[game_name] / 4)
+
+
