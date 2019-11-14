@@ -25,3 +25,21 @@ games_name_with_codes = {1: "guess_the_logo", 2: "who_is_who", 3: "game 3", 4: "
                          22: "game 22", 23: "game 23", 24: "game 24", 25: "bonus", 26: "game 26",
                          27: "game 27"}  # particular game code(number)
 
+# setting score equals to zero
+for _ in range(1, number_of_players + 1):
+    players_scores[_] = 0
+
+# setting last game value of each player equal to zero
+for _ in range(1, number_of_players + 1):
+    last_game_by_player[_] = 0
+
+# remaining chances
+for _ in range(1, number_of_players + 1):
+    players_remaining_chances[_] = 27
+
+# player details input
+for _ in range(1, number_of_players + 1):
+    players_details_name[_] = input("Enter Player " + str(_) + " Name: ")
+    # players_details_email[_] = input("Enter Player " + str(_) + " Email")
+
+
