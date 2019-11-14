@@ -105,7 +105,7 @@ def score_addition(player_number, game_name, game_owner, answer_status, lottery=
 # defining penalty rules
 def penalty(player, game_number):
     penalty_points = [10, 20, 30, 40, 50, 60]
-    penalty_points_number = penalty_points[random.randint(0, 6)]
+    penalty_points_number = penalty_points[random.randint(0, 5)]
     if game_number - last_game_by_player[player] == 1:
         score_addition(player, "penalty", "None", False, 0, 0, penalty_points_number)
         return penalty_points_number
@@ -128,7 +128,7 @@ def penalty(player, game_number):
 
 def bonus(player, game_number):
     bonus_points = [10, 20, 30, 40, 50, 60]
-    bonus_points_number = bonus_points[random.randint(0, 6)]
+    bonus_points_number = bonus_points[random.randint(0, 5)]
     if game_number - last_game_by_player[player] == 1:
         score_addition(player, "bonus", "None", False, 0, bonus_points_number, 0)
         return bonus_points_number
@@ -166,7 +166,8 @@ def update_remaining_chances(player, game_number, last_game):
 while True:
     for player in range(1, number_of_players + 1):
         if players_remaining_chances[player] >= 0:
-            game_number = int(input("Enter the Game Number of player " + str(player) + " :"))
+            dice_number = int(input("Enter the Dice Number of player " + str(player) + " :"))
+            game_number=dice_number+last_game_by_player[player]
             if game_number >= 28:
                 update_remaining_chances(player, game_number, last_game_by_player[player])
                 print("Player " + str(player) + " has completed his round")
