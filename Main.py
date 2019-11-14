@@ -157,3 +157,35 @@ def update_remaining_chances(player, game_number, last_game):
     return players_remaining_chances[player]
 
 
+while True:
+    for player in range(1, number_of_players + 1):
+        if players_remaining_chances[player] >= 0:
+            game_number = int(input("Enter the Game Number of player " + str(player) + " :"))
+            if game_number >= 28:
+                update_remaining_chances(player, game_number, last_game_by_player[player])
+                print("Player " + str(player) + " has completed his round")
+                continue
+            elif game_number == 4 or game_number == 18:
+                update_remaining_chances(player, game_number, last_game_by_player[player])
+                print("Penalty! of ", penalty(player, game_number))
+                continue
+            elif game_number == 11 or game_number == 18:
+                update_remaining_chances(player, game_number, last_game_by_player[player])
+                print("Bonus! of ", bonus(player, game_number))
+                continue
+            game_owner = who_is_game_owner(game_number, player)
+            score_addition(player, games_name_with_codes[game_number], game_owner, game_chooser(game_number))
+            update_remaining_chances(player, game_number, last_game_by_player[player])
+
+            last_game_by_player[player] = game_number
+
+
+        else:
+            continue
+
+    ifBreak = input("End game: Y or N")
+    if ifBreak.lower() == "y":
+        for i in range(1, number_of_players + 1):
+            print("Score of player " + str(i) + " is " + str(players_scores[i]))
+
+        break
