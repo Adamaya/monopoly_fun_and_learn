@@ -2,7 +2,7 @@
 Project Name:Fun Monopoly
 Author: Adamaya Sharma
 last Modified: 15/11/2019
-Version: 1.2.0
+Version: 1.2.1
 
 Description; fun monopoly is a monopoly based game stimulation. there are total 27 blocks in this game 2 lottery,
 2 penalty,1 payday,1 bonus and rest are sub games.
@@ -19,6 +19,7 @@ players_details_email = {}  # email of the players
 players_scores = {}  # score of the players
 players_remaining_chances = {}  # number of steps remaining per player
 last_game_by_player = {}  # last played game(number) by player
+players_who_loose_chance = {}  # players which are in jail
 game_owners = {"guess_the_logo": None, "who_is_who": None, "game 3": None, "penalty": None, "game 5": None,
                "game 6": None,
                "lottery": None, "game 8": None, "game 9": None, "game 10": None, "bonus": None, "game 12": None,
@@ -36,11 +37,11 @@ games_name_with_codes = {1: "guess_the_logo", 2: "who_is_who", 3: "game 3", 4: "
                          27: "game 27"}  # particular game code(number)
 
 # setting score equals to zero
-for _ in range(1, number_of_players + 1):
-    players_scores[_] = 0
-
+# setting player_in_jail value equals to zero
 # setting last game value of each player equal to zero
 for _ in range(1, number_of_players + 1):
+    players_scores[_] = 0
+    players_who_loose_chance[_] = 0
     last_game_by_player[_] = 0
 
 # remaining chances
@@ -158,8 +159,8 @@ def bonus(player, game_number):
 
 # lottery
 def lottery(player):
-    lottery_number = random.randint(0, 25)
-    bidder_number = int(input("Enter the number between 1 and 25"))
+    lottery_number = random.randint(0, 10)
+    bidder_number = int(input("Enter the number between 1 and 10"))
     if lottery_number == bidder_number:
         score_addition(player, "lottery", "None", False, 500)
         print("Player " + str(player) + " won the lottery!")
@@ -186,6 +187,10 @@ def update_remaining_chances(player, game_number, last_game):
 while True:
     for player in range(1, number_of_players + 1):
         if players_remaining_chances[player] >= 0:
+            # checking that a player is in jail or not
+            if last_game_by_player[player] == 14 and players_who_loose_chance[player] == 1:
+                players_who_loose_chance[player] = 0
+                continue
             while True:
                 dice_number = int(input("Enter the Dice Number of player " + str(player) + " :"))
                 if 1 <= dice_number <= 6:
@@ -214,7 +219,12 @@ while True:
                 lottery(player)
                 last_game_by_player[player] = game_number
                 continue
-
+            # setting chance loosing concept
+            elif game_number == 14:
+                update_remaining_chances(player, game_number, last_game_by_player[player])
+                players_who_loose_chance[player] = 1
+                last_game_by_player[player] = game_number
+                continue
             game_owner = who_is_game_owner(game_number, player)
             score_addition(player, games_name_with_codes[game_number], game_owner, game_chooser(game_number))
             update_remaining_chances(player, game_number, last_game_by_player[player])
