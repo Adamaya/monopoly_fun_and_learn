@@ -96,4 +96,27 @@ def score_addition(player_number, game_name, game_owner, answer_status, lottery=
     elif game_owner != player_number:
         players_scores[game_owner] = players_scores[game_owner] + (games_points[game_name] / 4)
 
+# defining penalty rules
+def penalty(player, game_number):
+    penalty_points = [10, 20, 30, 40, 50, 60]
+    penalty_points_number = penalty_points[random.randint(0, 6)]
+    if game_number - last_game_by_player[player] == 1:
+        score_addition(player, "penalty", "None", False, 0, 0, penalty_points_number)
+        return penalty_points_number
+    elif game_number - last_game_by_player[player] == 2:
+        score_addition(player, "penalty", "None", False, 0, 0, 20)
+        return 20
+    elif game_number - last_game_by_player[player] == 3:
+        score_addition(player, "penalty", "None", False, 0, 0, penalty_points_number)
+        return penalty_points_number
+    elif game_number - last_game_by_player[player] == 4:
+        score_addition(player, "penalty", "None", False, 0, 0, 40)
+        return 40
+    elif game_number - last_game_by_player[player] == 5:
+        score_addition(player, "penalty", "None", False, 0, 0, penalty_points_number)
+        return penalty_points_number
+    elif game_number - last_game_by_player[player] == 6:
+        score_addition(player, "penalty", "None", False, 0, 0, 60)
+        return 60
+
 
