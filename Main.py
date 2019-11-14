@@ -151,3 +151,9 @@ def who_is_game_owner(game_number, player):
         return game_owners[games_name_with_codes[game_number]]
 
 
+# check remaining turns
+def update_remaining_chances(player, game_number, last_game):
+    players_remaining_chances[player] = players_remaining_chances[player] - (game_number - last_game)
+    return players_remaining_chances[player]
+
+
