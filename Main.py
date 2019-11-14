@@ -1,7 +1,7 @@
 '''
 Project Name:Fun Monopoly
 Author: Adamaya Sharma
-last Modified: 14/11/2019
+last Modified: 15/11/2019
 Version: 1.2.0
 
 Description; fun monopoly is a monopoly based game stimulation. there are total 27 blocks in this game 2 lottery,
