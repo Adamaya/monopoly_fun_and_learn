@@ -1,11 +1,37 @@
 '''
 Project Name:Fun Monopoly
 Author: Adamaya Sharma
-last Modified: 15/11/2019
-Version: 1.2.1
+last Modified: 23/11/2019
+Version: 1.3.0
 
 Description; fun monopoly is a monopoly based game stimulation. there are total 27 blocks in this game 2 lottery,
 2 penalty,1 payday,1 bonus and rest are sub games.
+
+Game Sequence:
+
+21 20 19 18 17 16 15 14
+22                   13
+23                   12
+24                   11
+25                   10
+26                   9
+27                   8
+0  1  2  3  4  5  6  7
+
+1=> "guess_the_movie_with_the_help_of_dialogue"                 2=> "theme_based_movies"
+3=> "bollywood_quiz"                                            4=> "penalty"
+5=> "marvel_quiz"                                               6=> "guess_the_movie_with_the_help_of_music"
+7=> "lottery"                                                   8=> "the_logo_quiz"
+9=> "the_famous_personality"                                    10=> "logical_puzzle"
+11=> "bonus"                                                    12=> "basic_gk"
+13=> "slogans"                                                  14=> "jail",
+15=> "identify_the_artist"                                      16=> "guess_the_song"
+17=> "duet"                                                     18=> "penalty"
+19=> "music_quiz"                                               20=> "slogans"
+21=> "payday"                                                   22=> "riddles_level_1"
+23=> "read_out_the_color"                                       24=> "riddles_level_2"
+25=> "bonus"                                                    26=> "riddles_level_3"
+27=> "reverse"
 '''
 
 import random
@@ -20,21 +46,30 @@ players_scores = {}  # score of the players
 players_remaining_chances = {}  # number of steps remaining per player
 last_game_by_player = {}  # last played game(number) by player
 players_who_loose_chance = {}  # players which are in jail
-game_owners = {"guess_the_logo": None, "who_is_who": None, "game 3": None, "penalty": None, "game 5": None,
-               "game 6": None,
-               "lottery": None, "game 8": None, "game 9": None, "game 10": None, "bonus": None, "game 12": None,
-               "game 13": None, "game 14": None, "game 15": None, "game 16": None, "game 17": None,
-               "game 19": None, "game 20": None, "game 21": None, "game 22": None, "game 23": None, "game 24": None,
-               "game 26": None, "game 27": None}  # owner(player) of the game by default None
+game_owners = {"guess_the_movie_with_the_help_of_dialogue": None, "theme_based_movies": None, "bollywood_quiz": None,
+               "marvel_quiz": None,"guess_the_movie_with_the_help_of_music": None,
 
-games_name_with_codes = {1: "guess_the_logo", 2: "who_is_who", 3: "game 3", 4: "penalty", 5: "game 5", 6: "game 6",
+               "the_logo_quiz": None, "the_famous_personality": None, "logical_puzzle": None, "bonus": None,
+               "basic_gk": None,"slogans": None,
+
+               "identify_the_artist": None, "guess_the_song": None, "duet": None, "music_quiz": None,
+               "golden_era": None,
+
+               "riddles_level_1": None, "read_out_the_color": None, "riddles_level_2": None, "riddles_level_3": None,
+               "reverse": None
+               }  # owner(player) of the game by default None
+
+games_name_with_codes = {1: "guess_the_movie_with_the_help_of_dialogue", 2: "theme_based_movies", 3: "bollywood_quiz",
+                         4: "penalty", 5: "marvel_quiz", 6: "guess_the_movie_with_the_help_of_music",
                          7: "lottery",
-                         8: "game 8", 9: "game 9", 10: "game 10", 11: "bonus", 12: "game 12", 13: "game 13",
-                         14: "game 14",
-                         15: "game 15", 16: "game 16", 17: "game 17", 18: "penalty", 19: "game 19", 20: "game 20",
-                         21: "game 21",
-                         22: "game 22", 23: "game 23", 24: "game 24", 25: "bonus", 26: "game 26",
-                         27: "game 27"}  # particular game code(number)
+                         8: "the_logo_quiz", 9: "the_famous_personality", 10: "logical_puzzle", 11: "bonus",
+                         12: "basic_gk", 13: "slogans",
+                         14: "jail",
+                         15: "identify_the_artist", 16: "guess_the_song", 17: "duet", 18: "penalty", 19: "music_quiz",
+                         20: "slogans",
+                         21: "payday",
+                         22: "riddles_level_1", 23: "read_out_the_color", 24: "riddles_level_2", 25: "bonus",
+                         26: "riddles_level_3",27: "reverse"}  # particular game code(number)
 
 # setting score equals to zero
 # setting player_in_jail value equals to zero
@@ -56,22 +91,117 @@ for _ in range(1, number_of_players + 1):
 
 # game chooser function created
 def game_chooser(game_number):
+    # Entertainment: Guess the movie (with the help of dialogue)
     if game_number == 1:
-        print("Game " + str(game_number) + ": Guess the Logo")
-        questions = ['connectivity.jpg', 'microsoft.png']
-        random_number = random.randint(0, 1)
-        image = PIL.Image.open(
-            "C:/Users/ADAMAYA SHARMA/PycharmProjects/monoply_fun_and_learn/Logo/" + questions[random_number])
-        image.show()
-        print("Answer: Image number " + str(random_number))
+        print("Game " + str(game_number) + ": GUESS THE MOVIE (with the help of dialogue)")
+        questions = ["TENSION LENE KA NHI SIRF DENE KA", "LIFE MAI SBSE BADA RISK HOTA H KBHI KOI RISK NHI LENA",
+                     "MAI APNI FAVOUITE HOON", "TUMSE NA HO PAYEGA", "PALAT, PALAT, PALAT!!!",
+                     "AAP CONVINCE HOGYE KI MAI AUR BOLU",
+                     "USKA TO NA BAD LUCK HI KHRAAB HAI",
+                     "AADMI TBHI BADA BNTA HAI JB BADE LOG USSE MILNE LA ITNEZAAR KARE",
+                     "KAHI PR PAHUCHNE K LIYE KAHI SE NIKLNA ZARURI H", "INSAAN NAAM MAI MAZHAB DHUND LETA HAI",
+                     "KHAAMOSH!!!!", "PREM NAAM HAI MERA , PREM CHOPRA", "PICHAR ABHI BAAKI HAI MERE DOST",
+                     "PUSHPA I  HATE TEARS!!!", "BABUMUSHAI ZINDAGI BADI HONI CHAHIYE , LAMBI NHI..",
+                     "AAJ MERE PASS GADI HAI, BAGLA HAI, PAISA HAI, TMAHRE PASS KYA HAI??", "MERE KARAN ARJUN AYENGE!!",
+                     "RISHTE MEIN TO HUM TMHARE BAAP LAGTE HAI",
+                     "I’M JUST A STUPID COMMON MAN WAITING TO CLEAN HIS HOUSE",
+                     "MOGAMBO KHUSH HUA", "JO YE TERA TORTURE HAI WO MERA WARMUP HAI",
+                     "WATAN K AAGE KUCH NHI, KHUD BHI NHI",
+                     "APNA LIFE FULL SAAP SEEDI KA BOARD H, KBHI UP TO DOWN",
+                     "DOSTI AUR LADKI MAI HAMESHA LADKI JEETTI HAI",
+                     "DOSTI KA USUL HAI, MADAM – NO SORRY , NO THANK U",
+                     "KABHI KABHI KUCH JEETNE K LIYE KUCH HARNA PADTA H",
+                     "JA SIMARAN JA", "KOI DHANDA CHOTA NHI HOTA AUR DHNDE SE BADA KOI DHARM NHI HOTA",
+                     "TUMHARA RESULT DECIDE NHI KRTA HAI KI TUM LOSER HO KI NHI, TMHARI KOSHISH KRTI H..",
+                     "YE BABURAO KA STYLE HAI"
+                     ]
+        random_number = random.randint(0, 29)
+        print("\nDialogue Number :" + str(random_number))
+        print(questions[random_number])
         response = input("Answer is Correct or Wrong: \nY\t\tN")
         if response.lower() == "y":
             return True
         elif response.lower() == "n":
             return False
 
-    if game_number == 2:
-        print("Game " + str(game_number) + ": Guess the Music")
+    # Entertainment: THEME BASED MOVIES
+    elif game_number == 2:
+        print("Game " + str(game_number) + ": THEME BASED MOVIES")
+        questions = ["5 MOVIES RELATED TO – SPORTS", "5 PATRIOTIC MOVIES", "5 WOMEN EMPOWERMENT MOVIES",
+                     "5 HORROR MOVIES", "5 ROMANTIC MOVIES", "5 COMEDY MOVIES", "5 THRILLER MOVIES"]
+        random_number = random.randint(0, 6)
+        print("\nQuestion Number :" + str(random_number))
+        print(questions[random_number])
+        response = input("Answer is Correct or Wrong: \nY\t\tN")
+        if response.lower() == "y":
+            return True
+        elif response.lower() == "n":
+            return False
+
+    # Entertainment: BOLLYWOOD QUIZ
+    elif game_number == 3:
+        print("Game " + str(game_number) + ": BOLLYWOOD QUIZ")
+        questions = ["FATHER OF SALMAAN KHAN", "HOW MANY BROTHERS DO SALMAAN KHAN HAVE?",
+                     "FIRST FILM OF SHAHID KAPOOR",
+                     "FIRST FILM OF AMITABH BACHAN", "FIRST FILM OF SALMAAN KHAN", "FIRST FILM OF RANVEER SINGH",
+                     "FIRST FILM OF AYUSHMAAN KHURANAA", "FIRST FILM OF SHARUKH KHAN", "FIRST FILM OF AISHWARYA",
+                     "FIRST FILM OF KAJOL", "FIRST FILM OF AMIR KHAN", "FIRST FILM OF KATRINA KAIF",
+                     "NAME ONE MOVIE OF SAIF ALI KHAN AND RANI MUKHERJI",
+                     "NAME ONE MOVIE OF SALMAAN KHAN AND PRIYANKA CHOPRA",
+                     "NAME ONE MOVIE OF AKSHAY KUMAR AND KATRINA KAIF", "WHAT WAS THE THEME OF THE MOVIE “SHIVAAY”",
+                     "WHAT WAS THE THEME OF THE MOVIE “DEDE PYAAR DE”", "WHICH WAS THE FIRST BOLLYWOOD MOVIE",
+                     "MADHURI DIXIT NAME IN MOVIE “ TEZAAB”", "AISHWARYA RAI WAS CROWNED MISS WORLD IN?",
+                     "NAME THE DIRECTOR OF FILM “SATYA”", "NAME A  MOVIE OF AMIR KHAN’S HOME PRODUCTION",
+                     "NAME OF RITIESH DESHMUKH CHARACTER IN “DHAMAAL”",
+                     "NAME  A MOVIE WHERE SHARUKH KHAN WAS A VILLAIN", "NAME OF THE LEAD BAD GUY IN DHOOM",
+                     "LEAD MALE ROEL IN-“DELHI 6”",
+                     "BOLLYWOOD STAR SELECTED AS JURY MEMBER IN “CANNES FILM FESTIVAL” IN 2003?",
+                     "WHO PRODUCED “FIR BHI DIL H HINDUSTANI”", "FEMALE LEAD IN “CHANDNI CHOWK TO CHINA”",
+                     "WHO PALYED THE ROLE OF GOD IN “GOD TUSSI GREAT HO”?"]
+        random_number = random.randint(0, 29)
+        print("\nQuestion Number :" + str(random_number))
+        print(questions[random_number])
+        response = input("Answer is Correct or Wrong: \nY\t\tN")
+        if response.lower() == "y":
+            return True
+        elif response.lower() == "n":
+            return False
+
+    # Entertainment: QUIZ RELATED TO (DISNEY, MARVEL, CARTOONS)
+    elif game_number == 5:
+        print("Game " + str(game_number) + ": QUIZ RELATED TO (DISNEY, MARVEL, CARTOONS)")
+        questions = ["IN WHICH TWO CHANNELS YOU CAN WATCH DORAEMON", "FROM WHICH CENTURY DORARMON CAME FROM?",
+                     "NAME OF DOG WHICH TALKS TOO MUCH IN MOVIE NOBITA’S LITTLE SPACE WAR",
+                     "WHAT’S HAWKEYE’S REAL NAME IN AVENGERS",
+                     "IN “THE CLAWS OF THE CAT” WHO WAS BEHIND THE  MASK OF FELINEORIENTED SUPERHEROINE?",
+                     "IN 1939, WHAT PULP MAGAZINE PUBLISHER DECIDED TO GET INTO THE COMIC BUSINESS WITH “MARVEL COMICS”",
+                     "WHO IS THE VILLAIN WHO KILLED GWEN STACY, SPIDER-MAN’S FIRST LOVE?",
+                     "WHAT IS THE NAME OF SHINCHAN’S DOG?",
+                     "WHAT IS THE VEGETABLE WHICH SHINCHAN HATES TO EAT",
+                     "WHAT IS THE COLOUR OF DRESS SHINCHAN’S SISTER",
+                     "WHAT IS THE NAME OF LOKI’S FATHER", "THOR’S HAMMER NAME",
+                     "HOW MANY TIMES DR STRANGE SAW THE FUTURE IN INFINTY WAR",
+                     "WHICH STONE DOES DR STRANGE HAD WITH HIM", "WHAT WAS THE NAME OF THANOS DAUGHTERS",
+                     "WORD USED TO ACTIVATE IRON MAN’S SPECS(IN SPIDERMAN FAR FROM HOME )",
+                     "WHEN DID STANLEE DIED?",
+                     "T’CHALLA IS THE BLACK PANTHER SO WHAT IS HIS FATHER’S NAME ?"
+                     "REAL VOICE BEHIND DOREAMON", "NAME ANY 5 CHARACTER OF MICKEY MOUSE",
+                     "NAME THE THREE POWERPUFF GIRLS",
+                     "BROTHER’S NAME OF PRETTI IN HADI MERA BUDDY",
+                     "WHAT WAS THE NAME OF DORA’S MONKEY?", "WHO DIES IN GUARDIAN OF GALAXY VOL-1",
+                     "IN WHICH KINGDOM CHOTA BHEEM LIVES?", "NAME 5 DISNEY MOVIES"]
+        random_number = random.randint(0, 25)
+        print("\nQuestion Number :" + str(random_number))
+        print(questions[random_number])
+        response = input("Answer is Correct or Wrong: \nY\t\tN")
+        if response.lower() == "y":
+            return True
+        elif response.lower() == "n":
+            return False
+
+    # Entertainment: Guess the Movie with the help of Music
+    elif game_number == 6:
+        print("Game " + str(game_number) + ": Guess the Movie with the help of Music")
         questions = ['Cool and Inspiring Background Music.mp3', 'Cool and Inspiring Background Music.mp3']
         random_number = random.randint(0, 1)
         mixer.init()
@@ -87,10 +217,238 @@ def game_chooser(game_number):
         elif response.lower() == "n":
             return False
 
+    # Technology and Famous Personality: The LOGO Quiz
+    elif game_number == 8:
+        print("Game " + str(game_number) + ": The LOGO Quiz")
+        questions = ['connectivity.jpg', 'microsoft.png']
+        random_number = random.randint(0, 1)
+        image = PIL.Image.open(
+            "C:/Users/ADAMAYA SHARMA/PycharmProjects/monoply_fun_and_learn/Logo/" + questions[random_number])
+        image.show()
+        print("Answer: Image number " + str(random_number))
+        response = input("Answer is Correct or Wrong: \nY\t\tN")
+        if response.lower() == "y":
+            return True
+        elif response.lower() == "n":
+            return False
+
+    # Technology and Famous Personality: THE FAMOUS PERSONALITY
+    elif game_number == 9:
+        print("Game " + str(game_number) + ": THE FAMOUS PERSONALITY")
+        questions = ['connectivity.jpg', 'microsoft.png']
+        random_number = random.randint(0, 1)
+        image = PIL.Image.open(
+            "C:/Users/ADAMAYA SHARMA/PycharmProjects/monoply_fun_and_learn/Logo/" + questions[random_number])
+        image.show()
+        print("Answer: Image number " + str(random_number))
+        response = input("Answer is Correct or Wrong: \nY\t\tN")
+        if response.lower() == "y":
+            return True
+        elif response.lower() == "n":
+            return False
+
+    # Technology and Famous Personality: Logical puzzle
+    elif game_number == 10:
+        print("Game " + str(game_number) + ": Logical Puzzle")
+        questions = []
+        random_number = random.randint(0, 25)
+        print("\nQuestion Number :" + str(random_number))
+        print(questions[random_number])
+        response = input("Answer is Correct or Wrong: \nY\t\tN")
+        if response.lower() == "y":
+            return True
+        elif response.lower() == "n":
+            return False
+
+    # Technology and Famous Personality: Basic GK
+    elif game_number == 12:
+        print("Game " + str(game_number) + ": Basic GK")
+        questions = []
+        random_number = random.randint(0, 25)
+        print("\nQuestion Number :" + str(random_number))
+        print(questions[random_number])
+        response = input("Answer is Correct or Wrong: \nY\t\tN")
+        if response.lower() == "y":
+            return True
+        elif response.lower() == "n":
+            return False
+
+    # Technology and Famous Personality: Slogans
+    elif game_number == 13:
+        print("Game " + str(game_number) + ": Slogans")
+        questions = []
+        random_number = random.randint(0, 25)
+        print("\nQuestion Number :" + str(random_number))
+        print(questions[random_number])
+        response = input("Answer is Correct or Wrong: \nY\t\tN")
+        if response.lower() == "y":
+            return True
+        elif response.lower() == "n":
+            return False
+
+    # Music : Identify the Artist
+    elif game_number == 15:
+        print("Game " + str(game_number) + ": Identify the Artist")
+        questions = []
+        random_number = random.randint(0, 1)
+        mixer.init()
+        mixer.music.load(questions[random_number])
+        print("playing song " + str(random_number))
+        mixer.music.play()
+        time.sleep(30)
+        mixer.music.stop()
+
+        response = input("Answer is Correct or Wrong: \nY\t\tN")
+        if response.lower() == "y":
+            return True
+        elif response.lower() == "n":
+            return False
+
+    # Music : Guess the Song
+    elif game_number == 16:
+        print("Game " + str(game_number) + ": Guess the song")
+        questions = []
+        random_number = random.randint(0, 1)
+        mixer.init()
+        mixer.music.load(questions[random_number])
+        print("playing song " + str(random_number))
+        mixer.music.play()
+        time.sleep(30)
+        mixer.music.stop()
+
+        response = input("Answer is Correct or Wrong: \nY\t\tN")
+        if response.lower() == "y":
+            return True
+        elif response.lower() == "n":
+            return False
+
+    # Music : Duet
+    elif game_number == 17:
+        print("Game " + str(game_number) + ": Duet")
+        questions = []
+        random_number = random.randint(0, 1)
+        mixer.init()
+        mixer.music.load(questions[random_number])
+        print("playing song " + str(random_number))
+        mixer.music.play()
+        time.sleep(30)
+        mixer.music.stop()
+
+        response = input("Answer is Correct or Wrong: \nY\t\tN")
+        if response.lower() == "y":
+            return True
+        elif response.lower() == "n":
+            return False
+
+    # Music : Music Quiz
+    elif game_number == 19:
+        print("Game " + str(game_number) + ": Music Quiz")
+        questions = []
+        random_number = random.randint(0, 25)
+        print("\nQuestion Number :" + str(random_number))
+        print(questions[random_number])
+        response = input("Answer is Correct or Wrong: \nY\t\tN")
+        if response.lower() == "y":
+            return True
+        elif response.lower() == "n":
+            return False
+
+    # Music : Golden Era
+    elif game_number == 20:
+        print("Game " + str(game_number) + ": Golden Era")
+        questions = []
+        random_number = random.randint(0, 1)
+        mixer.init()
+        mixer.music.load(questions[random_number])
+        print("playing song " + str(random_number))
+        mixer.music.play()
+        time.sleep(30)
+        mixer.music.stop()
+
+        response = input("Answer is Correct or Wrong: \nY\t\tN")
+        if response.lower() == "y":
+            return True
+        elif response.lower() == "n":
+            return False
+
+    # IQ: Riddles (Level 1)
+    elif game_number == 22:
+        print("Game " + str(game_number) + ": Riddles (Level 1)")
+        questions = []
+        random_number = random.randint(0, 25)
+        print("\nQuestion Number :" + str(random_number))
+        print(questions[random_number])
+        response = input("Answer is Correct or Wrong: \nY\t\tN")
+        if response.lower() == "y":
+            return True
+        elif response.lower() == "n":
+            return False
+
+    # IQ: Read Out The Color
+    elif game_number == 23:
+        print("Game " + str(game_number) + ": Read Out The Color")
+        questions = []
+        random_number = random.randint(0, 25)
+        print("\nQuestion Number :" + str(random_number))
+        print(questions[random_number])
+        response = input("Answer is Correct or Wrong: \nY\t\tN")
+        if response.lower() == "y":
+            return True
+        elif response.lower() == "n":
+            return False
+
+    # IQ: Riddles (Level 2)
+    elif game_number == 24:
+        print("Game " + str(game_number) + ": Riddles (Level 2)")
+        questions = []
+        random_number = random.randint(0, 25)
+        print("\nQuestion Number :" + str(random_number))
+        print(questions[random_number])
+        response = input("Answer is Correct or Wrong: \nY\t\tN")
+        if response.lower() == "y":
+            return True
+        elif response.lower() == "n":
+            return False
+
+    # IQ: Riddles (Level 3)
+    elif game_number == 26:
+        print("Game " + str(game_number) + ": Riddles (Level 3)")
+        questions = []
+        random_number = random.randint(0, 25)
+        print("\nQuestion Number :" + str(random_number))
+        print(questions[random_number])
+        response = input("Answer is Correct or Wrong: \nY\t\tN")
+        if response.lower() == "y":
+            return True
+        elif response.lower() == "n":
+            return False
+
+    # IQ: Reverse it out
+    elif game_number == 27:
+        print("Game " + str(game_number) + ": Reverse it Out")
+        questions = []
+        random_number = random.randint(0, 25)
+        print("\nQuestion Number :" + str(random_number))
+        print(questions[random_number])
+        response = input("Answer is Correct or Wrong: \nY\t\tN")
+        if response.lower() == "y":
+            return True
+        elif response.lower() == "n":
+            return False
 
 # adding game scores
 def score_addition(player_number, game_name, game_owner, answer_status, lottery=0, bonus=0, penalty=0):
-    games_points = {"guess_the_logo": 100, "who_is_who": 200}
+    games_points = {"guess_the_movie_with_the_help_of_dialogue": 100, "theme_based_movies": 200, "bollywood_quiz": 300,
+                    "marvel_quiz": 100,"guess_the_movie_with_the_help_of_music": 200,
+
+                    "the_logo_quiz": 100, "the_famous_personality": 200, "logical_puzzle": 300, "basic_gk": 200,
+                    "slogans": 100,
+
+                     "identify_the_artist": 200, "guess_the_song": 100, "duet": 300, "music_quiz": 100,
+                     "golden_era": 200,
+
+                     "riddles_level_1": 100, "read_out_the_color": 150, "riddles_level_2": 200, "riddles_level_3": 300,
+                     "reverse": 250}
 
     if answer_status:
         players_scores[player_number] = players_scores[player_number] + games_points[game_name]
@@ -209,7 +567,7 @@ while True:
                 print("Penalty! of ", penalty(player, game_number))
                 last_game_by_player[player] = game_number
                 continue
-            elif game_number == 11 or game_number == 18:
+            elif game_number == 11 or game_number == 25:
                 update_remaining_chances(player, game_number, last_game_by_player[player])
                 print("Bonus! of ", bonus(player, game_number))
                 last_game_by_player[player] = game_number
