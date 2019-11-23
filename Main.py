@@ -47,14 +47,14 @@ players_remaining_chances = {}  # number of steps remaining per player
 last_game_by_player = {}  # last played game(number) by player
 players_who_loose_chance = {}  # players which are in jail
 game_owners = {"guess_the_movie_with_the_help_of_dialogue": None, "theme_based_movies": None, "bollywood_quiz": None,
-               "marvel_quiz": None,"guess_the_movie_with_the_help_of_music": None,
+               "marvel_quiz": None, "guess_the_movie_with_the_help_of_music": None,
 
                "the_logo_quiz": None, "the_famous_personality": None, "logical_puzzle": None, "bonus": None,
-               "basic_gk": None,"slogans": None,
+               "basic_gk": None, "slogans": None,
 
                "identify_the_artist": None, "guess_the_song": None, "duet": None, "music_quiz": None,
                "golden_era": None,
-
+               "payday": None,
                "riddles_level_1": None, "read_out_the_color": None, "riddles_level_2": None, "riddles_level_3": None,
                "reverse": None
                }  # owner(player) of the game by default None
@@ -69,7 +69,7 @@ games_name_with_codes = {1: "guess_the_movie_with_the_help_of_dialogue", 2: "the
                          20: "slogans",
                          21: "payday",
                          22: "riddles_level_1", 23: "read_out_the_color", 24: "riddles_level_2", 25: "bonus",
-                         26: "riddles_level_3",27: "reverse"}  # particular game code(number)
+                         26: "riddles_level_3", 27: "reverse"}  # particular game code(number)
 
 # setting score equals to zero
 # setting player_in_jail value equals to zero
@@ -93,7 +93,7 @@ for _ in range(1, number_of_players + 1):
 def game_chooser(game_number):
     # Entertainment: Guess the movie (with the help of dialogue)
     if game_number == 1:
-        print("Game " + str(game_number) + ": GUESS THE MOVIE (with the help of dialogue)")
+        print("\nGame " + str(game_number) + ": GUESS THE MOVIE (with the help of dialogue)")
         questions = ["TENSION LENE KA NHI SIRF DENE KA", "LIFE MAI SBSE BADA RISK HOTA H KBHI KOI RISK NHI LENA",
                      "MAI APNI FAVOUITE HOON", "TUMSE NA HO PAYEGA", "PALAT, PALAT, PALAT!!!",
                      "AAP CONVINCE HOGYE KI MAI AUR BOLU",
@@ -126,7 +126,7 @@ def game_chooser(game_number):
 
     # Entertainment: THEME BASED MOVIES
     elif game_number == 2:
-        print("Game " + str(game_number) + ": THEME BASED MOVIES")
+        print("\nGame " + str(game_number) + ": THEME BASED MOVIES")
         questions = ["5 MOVIES RELATED TO – SPORTS", "5 PATRIOTIC MOVIES", "5 WOMEN EMPOWERMENT MOVIES",
                      "5 HORROR MOVIES", "5 ROMANTIC MOVIES", "5 COMEDY MOVIES", "5 THRILLER MOVIES"]
         random_number = random.randint(0, 6)
@@ -140,7 +140,7 @@ def game_chooser(game_number):
 
     # Entertainment: BOLLYWOOD QUIZ
     elif game_number == 3:
-        print("Game " + str(game_number) + ": BOLLYWOOD QUIZ")
+        print("\nGame " + str(game_number) + ": BOLLYWOOD QUIZ")
         questions = ["FATHER OF SALMAAN KHAN", "HOW MANY BROTHERS DO SALMAAN KHAN HAVE?",
                      "FIRST FILM OF SHAHID KAPOOR",
                      "FIRST FILM OF AMITABH BACHAN", "FIRST FILM OF SALMAAN KHAN", "FIRST FILM OF RANVEER SINGH",
@@ -169,7 +169,7 @@ def game_chooser(game_number):
 
     # Entertainment: QUIZ RELATED TO (DISNEY, MARVEL, CARTOONS)
     elif game_number == 5:
-        print("Game " + str(game_number) + ": QUIZ RELATED TO (DISNEY, MARVEL, CARTOONS)")
+        print("\nGame " + str(game_number) + ": QUIZ RELATED TO (DISNEY, MARVEL, CARTOONS)")
         questions = ["IN WHICH TWO CHANNELS YOU CAN WATCH DORAEMON", "FROM WHICH CENTURY DORARMON CAME FROM?",
                      "NAME OF DOG WHICH TALKS TOO MUCH IN MOVIE NOBITA’S LITTLE SPACE WAR",
                      "WHAT’S HAWKEYE’S REAL NAME IN AVENGERS",
@@ -199,9 +199,10 @@ def game_chooser(game_number):
         elif response.lower() == "n":
             return False
 
+    # TODO Add the theme music of movies in game number 6
     # Entertainment: Guess the Movie with the help of Music
     elif game_number == 6:
-        print("Game " + str(game_number) + ": Guess the Movie with the help of Music")
+        print("\nGame " + str(game_number) + ": Guess the Movie with the help of Music")
         questions = ['Cool and Inspiring Background Music.mp3', 'Cool and Inspiring Background Music.mp3']
         random_number = random.randint(0, 1)
         mixer.init()
@@ -219,9 +220,14 @@ def game_chooser(game_number):
 
     # Technology and Famous Personality: The LOGO Quiz
     elif game_number == 8:
-        print("Game " + str(game_number) + ": The LOGO Quiz")
-        questions = ['connectivity.jpg', 'microsoft.png']
-        random_number = random.randint(0, 1)
+        print("\nGame " + str(game_number) + ": The LOGO Quiz")
+        questions = ['adobe.png', 'Airtel.jpg', 'alienware.jpg', 'apple.jpg', 'bentley.jpg', 'blackberry.png',
+                     'Boeing.png',
+                     'Cisco.png', 'cn_logo.jpg', 'DHL.png', 'dodge.png', 'dove.png', 'dreamworks.jpg', 'EA Sports.png',
+                     'Github.png', 'gulf.jpg', 'intelliJ.png', 'jetix.jpg', 'johney walker.jpg', 'Kwality walls.png',
+                     'mcdonald.png', 'microsoft.png', 'mini.jpg', 'NBC.jpg', 'nvidia.png', 'pringles.jpg', 'rolex.jpg',
+                     'Rolls_royce.png', 'shell.png', 'tesla.jpg', 'unity.png', 'Visual Studio.png', 'wolks_wagan.jpg']
+        random_number = random.randint(0, 32)
         image = PIL.Image.open(
             "C:/Users/ADAMAYA SHARMA/PycharmProjects/monoply_fun_and_learn/Logo/" + questions[random_number])
         image.show()
@@ -234,11 +240,14 @@ def game_chooser(game_number):
 
     # Technology and Famous Personality: THE FAMOUS PERSONALITY
     elif game_number == 9:
-        print("Game " + str(game_number) + ": THE FAMOUS PERSONALITY")
-        questions = ['connectivity.jpg', 'microsoft.png']
+        print("\nGame " + str(game_number) + ": THE FAMOUS PERSONALITY")
+        questions = ['Albert Einstein.jpg', 'denial redcliff.jpg', 'dr APJ Abdul Kalam.jpg', 'Elon Musk.jpg',
+                     'Jack ma.jpg',
+                     'jenifer lawrence.jpg', 'jk rowling.jpg', 'leonardo dicaprio.jpg']
         random_number = random.randint(0, 1)
         image = PIL.Image.open(
-            "C:/Users/ADAMAYA SHARMA/PycharmProjects/monoply_fun_and_learn/Logo/" + questions[random_number])
+            "C:/Users/ADAMAYA SHARMA/PycharmProjects/monoply_fun_and_learn/Famous Personality/" + questions[
+                random_number])
         image.show()
         print("Answer: Image number " + str(random_number))
         response = input("Answer is Correct or Wrong: \nY\t\tN")
@@ -249,9 +258,36 @@ def game_chooser(game_number):
 
     # Technology and Famous Personality: Logical puzzle
     elif game_number == 10:
-        print("Game " + str(game_number) + ": Logical Puzzle")
-        questions = []
-        random_number = random.randint(0, 25)
+        print("\nGame " + str(game_number) + ": Logical Puzzle")
+        questions = [
+            'THERE ARE TWO GIRLS ONE IS FACING THE SOUTH THE OTHER FACES THE NORTH YET THEY CAN SEE EACH OTHER WITHOUT A MIRROR, HOW CAN IT BE?',
+            'WHAT CAN YOU SEE ONCE IN A MIN, TWICE IN A MOMENT, AND NEVER IN A THOUSAND YEAR?',
+            'WHAT NO IS MISSING?\n234\n23?\nTIP: IT’S NOT 4',
+            'THERE IS A BATH TUB FILLED WITH WATER IN FRONT OF YOU, YOU’VE A SPOON, A CUP AND A BUCKET, WHAT IS THE FASTEST WAY TO EMPTY A TUB?',
+            'ADD ONE LINE TO MAKE THE EQUATION TRUE\n5+5+5+5=555\nYOU CANNOT CROSS THE EQUAL SIGN',
+            'THERE ARE 3 DOORS, IN FIRST DOOR A FIRE IS RAGGING AND SECOND DOOR THERE A GUN MAN, IN THIRD THERE IS A LION THAT HASN’T EATEN IN THREE YEARS. WHICH DOOR YOU WILL CHOOSE?',
+            'PLACE THREE LETTER IN (---) SO THAT YOU CAN COMPLETE THE WORD ON THE LEFT AND BEGIN THE WORD ON RIGHT\nUNF(---)EST',
+            'PLACE THREE LETTER IN (---) SO THAT YOU CAN COMPLETE THE WORD ON THE LEFT AND BEGIN THE WORD ON RIGHT\nTO(---)TURES',
+            'PLACE THREE LETTER IN (---) SO THAT YOU CAN COMPLETE THE WORD ON THE LEFT AND BEGIN THE WORD ON RIGHT\nHIC(---)FUL',
+            'PLACE THREE LETTER IN (---) SO THAT YOU CAN COMPLETE THE WORD ON THE LEFT AND BEGIN THE WORD ON RIGHT\nEIT(---)ETIC',
+            'PLACE THREE LETTER IN (---) SO THAT YOU CAN COMPLETE THE WORD ON THE LEFT AND BEGIN THE WORD ON RIGHT\nFEE(---)EDER',
+            'PLACE THREE LETTER IN (---) SO THAT YOU CAN COMPLETE THE WORD ON THE LEFT AND BEGIN THE WORD ON RIGHT\nHE(---)FUL',
+            'WHAT DOES IT SIGNIFIES?\n1,2,3---------,38,39,40LIFE',
+            'WHAT DOES IT SIGNIFIES?\nA,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,V,W,X,Y,Z',
+            'WHAT DOES IT SIGNIFIES?\n\tGIVE GET\n\tGIVE GET\n\tGIVE GET\n\tGIVE GET',
+            'WHAT DOES IT SIGNIFIES?\n\tLE\n\tVEL',
+            'WHAT DOES IT SIGNIFIES?\nL\n O\n  V\n   \nE', 'WHAT DOES IT SIGNIFIES?\n\tTRY STAND\t\t2',
+            'WHAT DOES IT SIGNIFIES?\n\tJOBINJOB', 'WHAT DOES IT SIGNIFIES?\n\tNEAFRIENDED',
+            'WHAT DOES IT SIGNIFIES?\n\tTRAVEL\n\tCCCCC', 'WHAT DOES IT SIGNIFIES?\n\tMEN\nBOARD',
+            'WHAT DOES IT SIGNIFIES?\n\t1.\n\t2.BLAME\n\t3.BLAME', 'HOW MANY MONTHS HAVE 28 DAYS?',
+            'A FARMER HEAD 17 GOTS.ALL BUT 6 DIED.HOW MANY SURVIVED?',
+            'WHAT OCCURS ONCE IN A YEAR, TWICE IN A WEEK BUT NEVER IN A DAY?',
+            'JACK’S MOTHER HAS THREE SONS – SNAP, JOHN, GUESS THE LAST ONE?',
+            'BEFORE MT EVEREST WAS DISCOVERED WHAT WAS HIGHEST MT.ON THE EARTH?',
+            'NAME ONE MEAL YOU CAN NEVER EAT FOR BREAKFAST?',
+            'WHAT WORD BECOMES SHORTER WHEN YOU ADD TWO LETTERS TO IT.'
+            ]
+        random_number = random.randint(0, 29)
         print("\nQuestion Number :" + str(random_number))
         print(questions[random_number])
         response = input("Answer is Correct or Wrong: \nY\t\tN")
@@ -262,9 +298,22 @@ def game_chooser(game_number):
 
     # Technology and Famous Personality: Basic GK
     elif game_number == 12:
-        print("Game " + str(game_number) + ": Basic GK")
-        questions = []
-        random_number = random.randint(0, 25)
+        print("\nGame " + str(game_number) + ": Basic GK")
+        questions = ['LANGUAGE SPOKEN BY PEOPLE IN PAKISTAN','WORLD’S LARGEST DESERT',
+                    'METAL WHOSE SALTS ARE SESITIVE TO LIGHT IS','MOUNT EVEREST IS LOACTED IN',
+                     'DEVICE USED FOR MEASURING ALTITUDE IS','WHICH IS CONSIDERED AS BIGGEST PORT IN INDIA',
+                     'THE GAS USED FOR MAKING VEGETABLE','PINK CITY IN INDIA IS',
+                     'HEADQUARTER OF COFFEE BOARD OF INDIA IS','LARGEST FRESHWATER LAKE IN INDIA',
+                     'NAME THE GOVERNOR GENERAL WHO ABOLISHED SATI SYSTEM IN 1829.',
+                     'LARGEST RIVER IN INDIA','PUNJAB IS FAMOUS FOR','FIRST UNIVERSITY IN INDIA WAS FOUNDED AT ',
+                      'THE STATE WHICH HAS LARGEST NO OF SUGAR MILLS','MOST POPULAR SPORT THROUGHOUT THE WORLD',
+                      'HOTEST CONTINENT ON EARTH','WORLD SMALLEST COUNTRY IS','SECOND LARGEST COUNTRY IN THE WORLD',
+                     'LANGUAGE SPOKEN IN KARNATAKA','CURRENCY NOTES ARE PRINTED IN','WORLD MOST COMMON RELIGION',
+                     'WHICH CITY HOSTED THE FIRST EVER ASAIN GAMES','IN WHICH YEAR WAS RASHPATI BHAVAN BUILT',
+                     'INDIA’S FIRST FEMALE PLAYBACK SINGER','WHICH COUNTRY HAS THE WORLD’S LARGEST RAILWAY NETWORK',
+                     'NATIONAL VEGETABLE OF INDIA','LARGEST SEA PORT IN INDIA','IN 2G, 3G AND 4G WHAT DOES G STANDS FOR?',
+                     'WHEN IS THE INTERNATIONAL DAY OF YOGA?']
+        random_number = random.randint(0, 29)
         print("\nQuestion Number :" + str(random_number))
         print(questions[random_number])
         response = input("Answer is Correct or Wrong: \nY\t\tN")
@@ -275,9 +324,17 @@ def game_chooser(game_number):
 
     # Technology and Famous Personality: Slogans
     elif game_number == 13:
-        print("Game " + str(game_number) + ": Slogans")
-        questions = []
-        random_number = random.randint(0, 25)
+        print("\nGame " + str(game_number) + ": Slogans")
+        questions = ['TANN KI SHAKTI , MANN KI SHAKTI','FRESH AND JUICY','TASTE THE THUNDER','THE COMPLETE MEN',
+                     'TASTE BHI , HEALTH BHI','BORN TOUGH','BEAUTY BAR OF FILM STARS','DESH KA NAMAK',
+                     'DIMAG KI BATTI JALA DE','BAJATE RAHO','ZINDAGI K SATH BHI, ZINDAGI K BAAD BHI','SWAAD ZINDAGI KA',
+                     'HAR GHAR KUCH KEHTE HAI','DAAG TO ACHE HAI','ISSE SASTA AUR KAHI NHI',
+                     'BHUJAYE PYAAS BAAKI ALL BAKWASS!!','JII LALCHAYE RAHA NA JAYE','NO ONE CAN EAT JUST ONCE',
+                     'JIYO SIR UTHA K','KAISI JEEP LAPLAPAYI','KHAAO AUR KHUD JAAN JAAO','DIL KI DEAL',
+                     'AB HAR WISH HOGI PURI','CHALO NIKLO','DIL TO ROAMING HAI','DISCOVER GREAT PLACES TO EAT AROUND YOU',
+                     'GALE KI KHARACH KA FIRST AID','THANDA THANDA COOL COOL','THE KING OF GOOD TIMES','TAKE CARE'
+                     ]
+        random_number = random.randint(0, 29)
         print("\nQuestion Number :" + str(random_number))
         print(questions[random_number])
         response = input("Answer is Correct or Wrong: \nY\t\tN")
@@ -288,8 +345,8 @@ def game_chooser(game_number):
 
     # Music : Identify the Artist
     elif game_number == 15:
-        print("Game " + str(game_number) + ": Identify the Artist")
-        questions = []
+        print("\nGame " + str(game_number) + ": Identify the Artist")
+        questions = ['Cool and Inspiring Background Music.mp3', 'Cool and Inspiring Background Music.mp3']
         random_number = random.randint(0, 1)
         mixer.init()
         mixer.music.load(questions[random_number])
@@ -306,8 +363,8 @@ def game_chooser(game_number):
 
     # Music : Guess the Song
     elif game_number == 16:
-        print("Game " + str(game_number) + ": Guess the song")
-        questions = []
+        print("\nGame " + str(game_number) + ": Guess the song")
+        questions = ['Cool and Inspiring Background Music.mp3', 'Cool and Inspiring Background Music.mp3']
         random_number = random.randint(0, 1)
         mixer.init()
         mixer.music.load(questions[random_number])
@@ -324,8 +381,8 @@ def game_chooser(game_number):
 
     # Music : Duet
     elif game_number == 17:
-        print("Game " + str(game_number) + ": Duet")
-        questions = []
+        print("\nGame " + str(game_number) + ": Duet")
+        questions = ['Cool and Inspiring Background Music.mp3', 'Cool and Inspiring Background Music.mp3']
         random_number = random.randint(0, 1)
         mixer.init()
         mixer.music.load(questions[random_number])
@@ -342,9 +399,9 @@ def game_chooser(game_number):
 
     # Music : Music Quiz
     elif game_number == 19:
-        print("Game " + str(game_number) + ": Music Quiz")
-        questions = []
-        random_number = random.randint(0, 25)
+        print("\nGame " + str(game_number) + ": Music Quiz")
+        questions = ['Cool and Inspiring Background Music.mp3', 'Cool and Inspiring Background Music.mp3']
+        random_number = random.randint(0, 1)
         print("\nQuestion Number :" + str(random_number))
         print(questions[random_number])
         response = input("Answer is Correct or Wrong: \nY\t\tN")
@@ -355,8 +412,8 @@ def game_chooser(game_number):
 
     # Music : Golden Era
     elif game_number == 20:
-        print("Game " + str(game_number) + ": Golden Era")
-        questions = []
+        print("\nGame " + str(game_number) + ": Golden Era")
+        questions = ['Cool and Inspiring Background Music.mp3', 'Cool and Inspiring Background Music.mp3']
         random_number = random.randint(0, 1)
         mixer.init()
         mixer.music.load(questions[random_number])
@@ -373,8 +430,16 @@ def game_chooser(game_number):
 
     # IQ: Riddles (Level 1)
     elif game_number == 22:
-        print("Game " + str(game_number) + ": Riddles (Level 1)")
-        questions = []
+        print("\nGame " + str(game_number) + ": Riddles (Level 1)")
+        questions = ['TANN KI SHAKTI , MANN KI SHAKTI','FRESH AND JUICY','TASTE THE THUNDER','THE COMPLETE MEN',
+                     'TASTE BHI , HEALTH BHI','BORN TOUGH','BEAUTY BAR OF FILM STARS','DESH KA NAMAK',
+                     'DIMAG KI BATTI JALA DE','BAJATE RAHO','ZINDAGI K SATH BHI, ZINDAGI K BAAD BHI','SWAAD ZINDAGI KA',
+                     'HAR GHAR KUCH KEHTE HAI','DAAG TO ACHE HAI','ISSE SASTA AUR KAHI NHI',
+                     'BHUJAYE PYAAS BAAKI ALL BAKWASS!!','JII LALCHAYE RAHA NA JAYE','NO ONE CAN EAT JUST ONCE',
+                     'JIYO SIR UTHA K','KAISI JEEP LAPLAPAYI','KHAAO AUR KHUD JAAN JAAO','DIL KI DEAL',
+                     'AB HAR WISH HOGI PURI','CHALO NIKLO','DIL TO ROAMING HAI','DISCOVER GREAT PLACES TO EAT AROUND YOU',
+                     'GALE KI KHARACH KA FIRST AID','THANDA THANDA COOL COOL','THE KING OF GOOD TIMES','TAKE CARE'
+                     ]
         random_number = random.randint(0, 25)
         print("\nQuestion Number :" + str(random_number))
         print(questions[random_number])
@@ -386,8 +451,16 @@ def game_chooser(game_number):
 
     # IQ: Read Out The Color
     elif game_number == 23:
-        print("Game " + str(game_number) + ": Read Out The Color")
-        questions = []
+        print("\nGame " + str(game_number) + ": Read Out The Color")
+        questions = ['TANN KI SHAKTI , MANN KI SHAKTI','FRESH AND JUICY','TASTE THE THUNDER','THE COMPLETE MEN',
+                     'TASTE BHI , HEALTH BHI','BORN TOUGH','BEAUTY BAR OF FILM STARS','DESH KA NAMAK',
+                     'DIMAG KI BATTI JALA DE','BAJATE RAHO','ZINDAGI K SATH BHI, ZINDAGI K BAAD BHI','SWAAD ZINDAGI KA',
+                     'HAR GHAR KUCH KEHTE HAI','DAAG TO ACHE HAI','ISSE SASTA AUR KAHI NHI',
+                     'BHUJAYE PYAAS BAAKI ALL BAKWASS!!','JII LALCHAYE RAHA NA JAYE','NO ONE CAN EAT JUST ONCE',
+                     'JIYO SIR UTHA K','KAISI JEEP LAPLAPAYI','KHAAO AUR KHUD JAAN JAAO','DIL KI DEAL',
+                     'AB HAR WISH HOGI PURI','CHALO NIKLO','DIL TO ROAMING HAI','DISCOVER GREAT PLACES TO EAT AROUND YOU',
+                     'GALE KI KHARACH KA FIRST AID','THANDA THANDA COOL COOL','THE KING OF GOOD TIMES','TAKE CARE'
+                     ]
         random_number = random.randint(0, 25)
         print("\nQuestion Number :" + str(random_number))
         print(questions[random_number])
@@ -399,8 +472,16 @@ def game_chooser(game_number):
 
     # IQ: Riddles (Level 2)
     elif game_number == 24:
-        print("Game " + str(game_number) + ": Riddles (Level 2)")
-        questions = []
+        print("\nGame " + str(game_number) + ": Riddles (Level 2)")
+        questions = ['TANN KI SHAKTI , MANN KI SHAKTI','FRESH AND JUICY','TASTE THE THUNDER','THE COMPLETE MEN',
+                     'TASTE BHI , HEALTH BHI','BORN TOUGH','BEAUTY BAR OF FILM STARS','DESH KA NAMAK',
+                     'DIMAG KI BATTI JALA DE','BAJATE RAHO','ZINDAGI K SATH BHI, ZINDAGI K BAAD BHI','SWAAD ZINDAGI KA',
+                     'HAR GHAR KUCH KEHTE HAI','DAAG TO ACHE HAI','ISSE SASTA AUR KAHI NHI',
+                     'BHUJAYE PYAAS BAAKI ALL BAKWASS!!','JII LALCHAYE RAHA NA JAYE','NO ONE CAN EAT JUST ONCE',
+                     'JIYO SIR UTHA K','KAISI JEEP LAPLAPAYI','KHAAO AUR KHUD JAAN JAAO','DIL KI DEAL',
+                     'AB HAR WISH HOGI PURI','CHALO NIKLO','DIL TO ROAMING HAI','DISCOVER GREAT PLACES TO EAT AROUND YOU',
+                     'GALE KI KHARACH KA FIRST AID','THANDA THANDA COOL COOL','THE KING OF GOOD TIMES','TAKE CARE'
+                     ]
         random_number = random.randint(0, 25)
         print("\nQuestion Number :" + str(random_number))
         print(questions[random_number])
@@ -412,8 +493,16 @@ def game_chooser(game_number):
 
     # IQ: Riddles (Level 3)
     elif game_number == 26:
-        print("Game " + str(game_number) + ": Riddles (Level 3)")
-        questions = []
+        print("\nGame " + str(game_number) + ": Riddles (Level 3)")
+        questions = ['TANN KI SHAKTI , MANN KI SHAKTI','FRESH AND JUICY','TASTE THE THUNDER','THE COMPLETE MEN',
+                     'TASTE BHI , HEALTH BHI','BORN TOUGH','BEAUTY BAR OF FILM STARS','DESH KA NAMAK',
+                     'DIMAG KI BATTI JALA DE','BAJATE RAHO','ZINDAGI K SATH BHI, ZINDAGI K BAAD BHI','SWAAD ZINDAGI KA',
+                     'HAR GHAR KUCH KEHTE HAI','DAAG TO ACHE HAI','ISSE SASTA AUR KAHI NHI',
+                     'BHUJAYE PYAAS BAAKI ALL BAKWASS!!','JII LALCHAYE RAHA NA JAYE','NO ONE CAN EAT JUST ONCE',
+                     'JIYO SIR UTHA K','KAISI JEEP LAPLAPAYI','KHAAO AUR KHUD JAAN JAAO','DIL KI DEAL',
+                     'AB HAR WISH HOGI PURI','CHALO NIKLO','DIL TO ROAMING HAI','DISCOVER GREAT PLACES TO EAT AROUND YOU',
+                     'GALE KI KHARACH KA FIRST AID','THANDA THANDA COOL COOL','THE KING OF GOOD TIMES','TAKE CARE'
+                     ]
         random_number = random.randint(0, 25)
         print("\nQuestion Number :" + str(random_number))
         print(questions[random_number])
@@ -425,8 +514,16 @@ def game_chooser(game_number):
 
     # IQ: Reverse it out
     elif game_number == 27:
-        print("Game " + str(game_number) + ": Reverse it Out")
-        questions = []
+        print("\nGame " + str(game_number) + ": Reverse it Out")
+        questions = ['TANN KI SHAKTI , MANN KI SHAKTI','FRESH AND JUICY','TASTE THE THUNDER','THE COMPLETE MEN',
+                     'TASTE BHI , HEALTH BHI','BORN TOUGH','BEAUTY BAR OF FILM STARS','DESH KA NAMAK',
+                     'DIMAG KI BATTI JALA DE','BAJATE RAHO','ZINDAGI K SATH BHI, ZINDAGI K BAAD BHI','SWAAD ZINDAGI KA',
+                     'HAR GHAR KUCH KEHTE HAI','DAAG TO ACHE HAI','ISSE SASTA AUR KAHI NHI',
+                     'BHUJAYE PYAAS BAAKI ALL BAKWASS!!','JII LALCHAYE RAHA NA JAYE','NO ONE CAN EAT JUST ONCE',
+                     'JIYO SIR UTHA K','KAISI JEEP LAPLAPAYI','KHAAO AUR KHUD JAAN JAAO','DIL KI DEAL',
+                     'AB HAR WISH HOGI PURI','CHALO NIKLO','DIL TO ROAMING HAI','DISCOVER GREAT PLACES TO EAT AROUND YOU',
+                     'GALE KI KHARACH KA FIRST AID','THANDA THANDA COOL COOL','THE KING OF GOOD TIMES','TAKE CARE'
+                     ]
         random_number = random.randint(0, 25)
         print("\nQuestion Number :" + str(random_number))
         print(questions[random_number])
@@ -436,19 +533,20 @@ def game_chooser(game_number):
         elif response.lower() == "n":
             return False
 
+
 # adding game scores
 def score_addition(player_number, game_name, game_owner, answer_status, lottery=0, bonus=0, penalty=0):
     games_points = {"guess_the_movie_with_the_help_of_dialogue": 100, "theme_based_movies": 200, "bollywood_quiz": 300,
-                    "marvel_quiz": 100,"guess_the_movie_with_the_help_of_music": 200,
+                    "marvel_quiz": 100, "guess_the_movie_with_the_help_of_music": 200,
 
                     "the_logo_quiz": 100, "the_famous_personality": 200, "logical_puzzle": 300, "basic_gk": 200,
                     "slogans": 100,
 
-                     "identify_the_artist": 200, "guess_the_song": 100, "duet": 300, "music_quiz": 100,
-                     "golden_era": 200,
+                    "identify_the_artist": 200, "guess_the_song": 100, "duet": 300, "music_quiz": 100,
+                    "golden_era": 200,
 
-                     "riddles_level_1": 100, "read_out_the_color": 150, "riddles_level_2": 200, "riddles_level_3": 300,
-                     "reverse": 250}
+                    "riddles_level_1": 100, "read_out_the_color": 150, "riddles_level_2": 200, "riddles_level_3": 300,
+                    "reverse": 250}
 
     if answer_status:
         players_scores[player_number] = players_scores[player_number] + games_points[game_name]
@@ -518,7 +616,8 @@ def bonus(player, game_number):
 # lottery
 def lottery(player):
     lottery_number = random.randint(0, 10)
-    bidder_number = int(input("Enter the number between 1 and 10"))
+    print("\nLottery!!\n")
+    bidder_number = int(input("Enter the number between 1 and 10: "))
     if lottery_number == bidder_number:
         score_addition(player, "lottery", "None", False, 500)
         print("Player " + str(player) + " won the lottery!")
