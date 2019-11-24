@@ -2,7 +2,7 @@
 Project Name:Fun Monopoly
 Author: Adamaya Sharma
 last Modified: 24/11/2019
-Version: 1.3.2
+Version: 1.3.3
 
 Description; fun monopoly is a monopoly based game stimulation. there are total 27 blocks in this game 2 lottery,
 2 penalty,1 payday,1 bonus and rest are sub games.
@@ -33,7 +33,9 @@ Game Sequence:
 25=> "bonus"                                                    26=> "riddles_level_3"
 27=> "reverse"
 '''
-
+# TODO check the file names in the_logo_quiz
+# TODO ADD MUSIC SECTION MUSIC
+# TODO ADD DISCRIPTION OF GAMES
 import random
 import PIL.Image
 import time
@@ -42,13 +44,15 @@ from pygame import mixer  # Load the popular external library
 
 # checking that answer is correct or wrong
 def response_return(request):
-    if request.lower()=='y':
+    if request.lower() == 'y':
         return True
-    elif request.lower()=='n':
+    elif request.lower() == 'n':
         return False
     else:
         print("\nWrong Input\n")
-        response_return(input('Answer is Correct or Wrong: \nY\t\tN\n'))
+        return response_return(input('Y\t\tN\n'))
+
+
 # game chooser function created
 
 
@@ -81,7 +85,7 @@ def game_chooser(game_number):
         print("\nDialogue Number :" + str(random_number + 1))
         print(questions[random_number])
         response = input("Answer is Correct or Wrong: \nY\t\tN")
-        response_return(response)
+        return response_return(response)
 
     # Entertainment: THEME BASED MOVIES
     elif game_number == 2:
@@ -92,7 +96,7 @@ def game_chooser(game_number):
         print("\nQuestion Number :" + str(random_number + 1))
         print(questions[random_number])
         response = input("Answer is Correct or Wrong: \nY\t\tN\n")
-        response_return(response)
+        return response_return(response)
 
     # Entertainment: BOLLYWOOD QUIZ
     elif game_number == 3:
@@ -118,7 +122,7 @@ def game_chooser(game_number):
         print("\nQuestion Number :" + str(random_number + 1))
         print(questions[random_number])
         response = input("Answer is Correct or Wrong: \nY\t\tN")
-        response_return(response)
+        return response_return(response)
 
     # Entertainment: QUIZ RELATED TO (DISNEY, MARVEL, CARTOONS)
     elif game_number == 5:
@@ -147,7 +151,7 @@ def game_chooser(game_number):
         print("\nQuestion Number :" + str(random_number + 1))
         print(questions[random_number])
         response = input("Answer is Correct or Wrong: \nY\t\tN")
-        response_return(response)
+        return response_return(response)
 
     # TODO Add the theme music of movies in game number 6
     # Entertainment: Guess the Movie with the help of Music
@@ -163,7 +167,7 @@ def game_chooser(game_number):
         mixer.music.stop()
 
         response = input("Answer is Correct or Wrong: \nY\t\tN")
-        response_return(response)
+        return response_return(response)
 
     # Technology and Famous Personality: The LOGO Quiz
     elif game_number == 8:
@@ -180,7 +184,7 @@ def game_chooser(game_number):
         image.show()
         print("Answer: Image number " + str(random_number + 1))
         response = input("Answer is Correct or Wrong: \nY\t\tN")
-        response_return(response)
+        return response_return(response)
 
     # Technology and Famous Personality: THE FAMOUS PERSONALITY
     elif game_number == 9:
@@ -195,7 +199,7 @@ def game_chooser(game_number):
         image.show()
         print("Answer: Image number " + str(random_number + 1))
         response = input("Answer is Correct or Wrong: \nY\t\tN")
-        response_return(response)
+        return response_return(response)
 
     # Technology and Famous Personality: Logical puzzle
     elif game_number == 10:
@@ -232,7 +236,7 @@ def game_chooser(game_number):
         print("\nQuestion Number :" + str(random_number + 1))
         print(questions[random_number])
         response = input("Answer is Correct or Wrong: \nY\t\tN")
-        response_return(response)
+        return response_return(response)
 
     # Technology and Famous Personality: Basic GK
     elif game_number == 12:
@@ -256,7 +260,7 @@ def game_chooser(game_number):
         print("\nQuestion Number :" + str(random_number + 1))
         print(questions[random_number])
         response = input("Answer is Correct or Wrong: \nY\t\tN")
-        response_return(response)
+        return response_return(response)
 
     # Technology and Famous Personality: Slogans
     elif game_number == 13:
@@ -276,7 +280,7 @@ def game_chooser(game_number):
         print("\nQuestion Number :" + str(random_number + 1))
         print(questions[random_number])
         response = input("Answer is Correct or Wrong: \nY\t\tN")
-        response_return(response)
+        return response_return(response)
 
     # Music : Identify the Artist
     elif game_number == 15:
@@ -291,7 +295,7 @@ def game_chooser(game_number):
         mixer.music.stop()
 
         response = input("Answer is Correct or Wrong: \nY\t\tN")
-        response_return(response)
+        return response_return(response)
 
     # Music : Guess the Song
     elif game_number == 16:
@@ -306,7 +310,7 @@ def game_chooser(game_number):
         mixer.music.stop()
 
         response = input("Answer is Correct or Wrong: \nY\t\tN")
-        response_return(response)
+        return response_return(response)
 
     # Music : Duet
     elif game_number == 17:
@@ -321,7 +325,7 @@ def game_chooser(game_number):
         mixer.music.stop()
 
         response = input("Answer is Correct or Wrong: \nY\t\tN")
-        response_return(response)
+        return response_return(response)
 
     # Music : Music Quiz
     elif game_number == 19:
@@ -331,7 +335,7 @@ def game_chooser(game_number):
         print("\nQuestion Number :" + str(random_number + 1))
         print(questions[random_number])
         response = input("Answer is Correct or Wrong: \nY\t\tN")
-        response_return(response)
+        return response_return(response)
 
     # Music : Golden Era
     elif game_number == 20:
@@ -346,87 +350,93 @@ def game_chooser(game_number):
         mixer.music.stop()
 
         response = input("Answer is Correct or Wrong: \nY\t\tN")
-        response_return(response)
+        return response_return(response)
 
     # IQ: Riddles (Level 1)
     elif game_number == 22:
         print("\nGame " + str(game_number) + ": Riddles (Level 1)")
-        questions = ['TANN KI SHAKTI , MANN KI SHAKTI', 'FRESH AND JUICY', 'TASTE THE THUNDER', 'THE COMPLETE MEN',
-                     'TASTE BHI , HEALTH BHI', 'BORN TOUGH', 'BEAUTY BAR OF FILM STARS', 'DESH KA NAMAK',
-                     'DIMAG KI BATTI JALA DE', 'BAJATE RAHO', 'ZINDAGI K SATH BHI, ZINDAGI K BAAD BHI',
-                     'SWAAD ZINDAGI KA',
-                     'HAR GHAR KUCH KEHTE HAI', 'DAAG TO ACHE HAI', 'ISSE SASTA AUR KAHI NHI',
-                     'BHUJAYE PYAAS BAAKI ALL BAKWASS!!', 'JII LALCHAYE RAHA NA JAYE', 'NO ONE CAN EAT JUST ONCE',
-                     'JIYO SIR UTHA K', 'KAISI JEEP LAPLAPAYI', 'KHAAO AUR KHUD JAAN JAAO', 'DIL KI DEAL',
-                     'AB HAR WISH HOGI PURI', 'CHALO NIKLO', 'DIL TO ROAMING HAI',
-                     'DISCOVER GREAT PLACES TO EAT AROUND YOU',
-                     'GALE KI KHARACH KA FIRST AID', 'THANDA THANDA COOL COOL', 'THE KING OF GOOD TIMES', 'TAKE CARE'
-                     ]
+        questions = [
+            'You begin reading a book 240 pages long. If you read half of the remaining book each day how long would it take you to finish the book?',
+            'Add a single line to the equation in order to make it true.\n105 + 2 + 5 = 350',
+            'Find the product of the following series:\n(x-a) (x-b) (x-c) ..... (x-z)',
+            'What number when multiplied against itself will result in a number which includes the numbers (1 - 9) in forward order, and then descending in order from the 9? (i.e., to get the number: 12,345,678,987,654,321)',
+            'An old man said to a young man, "I have a daughter. She has as many brothers as she has sisters. Each one of her brothers has twice as many sisters as he has brothers. How many sons and daughters do I have?',
+            'A kite and surfboard cost $1500 in total. The kite costs $1,000 more than the surfboard. How much does the surfboard cost?',
+            'Try to find a common connecting word.\n\tPiano : Lock',
+            'Try to find a common connecting word.\n\tTree : Car',
+            'Try to find a common connecting word.\n\tTennis : Noise',
+            'Try to find a common connecting word.\n\tShip : Cards',
+            'Try to find a common connecting word.\n\tBed : Paper',
+            'Try to find a common connecting word.\n\tPillow : Court',
+            'Try to find a common connecting word.\n\tSilver : Table',
+            'Try to find a common connecting word.\n\tType : Lift',
+            'Add a single line to the equation in order to make it true.\n\t5+5+5+5=555',
+            'I AM A FRUIT . I AM TASTY AND PROVIDE LOTS OF ENERGY . YOU CAN ALSO FIND ME IN A CALENDAR. WHO AM I?',
+            'I COME FROM NORTH, EAST,WEST AND SOUTH. I GIVE YOY LOTS OF INFORMATION EITHER VERBALLY OR TEXTUALLY. WHO AM I?',
+            'I AM DRINK. I AM ALSO AN ALPHABET. WHO AM I?', 'THE MORE I AM PRESENT , THE LESS YOU CAN SEE . WHO AM I?',
+            'I START WITH T AND END WITH T AND HAVE T IN ME . WHO AM I?']
         random_number = random.randint(0, 25)
         print("\nQuestion Number :" + str(random_number + 1))
         print(questions[random_number])
         response = input("Answer is Correct or Wrong: \nY\t\tN")
-        response_return(response)
+        return response_return(response)
 
     # IQ: Read Out The Color
     elif game_number == 23:
         print("\nGame " + str(game_number) + ": Read Out The Color")
-        questions = ['TANN KI SHAKTI , MANN KI SHAKTI', 'FRESH AND JUICY', 'TASTE THE THUNDER', 'THE COMPLETE MEN',
-                     'TASTE BHI , HEALTH BHI', 'BORN TOUGH', 'BEAUTY BAR OF FILM STARS', 'DESH KA NAMAK',
-                     'DIMAG KI BATTI JALA DE', 'BAJATE RAHO', 'ZINDAGI K SATH BHI, ZINDAGI K BAAD BHI',
-                     'SWAAD ZINDAGI KA',
-                     'HAR GHAR KUCH KEHTE HAI', 'DAAG TO ACHE HAI', 'ISSE SASTA AUR KAHI NHI',
-                     'BHUJAYE PYAAS BAAKI ALL BAKWASS!!', 'JII LALCHAYE RAHA NA JAYE', 'NO ONE CAN EAT JUST ONCE',
-                     'JIYO SIR UTHA K', 'KAISI JEEP LAPLAPAYI', 'KHAAO AUR KHUD JAAN JAAO', 'DIL KI DEAL',
-                     'AB HAR WISH HOGI PURI', 'CHALO NIKLO', 'DIL TO ROAMING HAI',
-                     'DISCOVER GREAT PLACES TO EAT AROUND YOU',
-                     'GALE KI KHARACH KA FIRST AID', 'THANDA THANDA COOL COOL', 'THE KING OF GOOD TIMES', 'TAKE CARE'
-                     ]
-        random_number = random.randint(0, 25)
-        print("\nQuestion Number :" + str(random_number + 1))
-        print(questions[random_number])
+        questions = [
+            '1.png','2.png','3.png','4.png','5.png'
+            ]
+        random_number = random.randint(0, 4)
+        image = PIL.Image.open(
+            "C:/Users/ADAMAYA SHARMA/PycharmProjects/monoply_fun_and_learn/Read out the color/" + questions[random_number])
+        image.show()
+        print("Answer: Image number " + str(random_number + 1))
         response = input("Answer is Correct or Wrong: \nY\t\tN")
-        response_return(response)
+        return response_return(response)
 
     # IQ: Riddles (Level 2)
     elif game_number == 24:
         print("\nGame " + str(game_number) + ": Riddles (Level 2)")
-        questions = ['TANN KI SHAKTI , MANN KI SHAKTI', 'FRESH AND JUICY', 'TASTE THE THUNDER', 'THE COMPLETE MEN',
-                     'TASTE BHI , HEALTH BHI', 'BORN TOUGH', 'BEAUTY BAR OF FILM STARS', 'DESH KA NAMAK',
-                     'DIMAG KI BATTI JALA DE', 'BAJATE RAHO', 'ZINDAGI K SATH BHI, ZINDAGI K BAAD BHI',
-                     'SWAAD ZINDAGI KA',
-                     'HAR GHAR KUCH KEHTE HAI', 'DAAG TO ACHE HAI', 'ISSE SASTA AUR KAHI NHI',
-                     'BHUJAYE PYAAS BAAKI ALL BAKWASS!!', 'JII LALCHAYE RAHA NA JAYE', 'NO ONE CAN EAT JUST ONCE',
-                     'JIYO SIR UTHA K', 'KAISI JEEP LAPLAPAYI', 'KHAAO AUR KHUD JAAN JAAO', 'DIL KI DEAL',
-                     'AB HAR WISH HOGI PURI', 'CHALO NIKLO', 'DIL TO ROAMING HAI',
-                     'DISCOVER GREAT PLACES TO EAT AROUND YOU',
-                     'GALE KI KHARACH KA FIRST AID', 'THANDA THANDA COOL COOL', 'THE KING OF GOOD TIMES', 'TAKE CARE'
+        questions = ['What is full of holes but still holds water?', 'What has no content yet you can see it?',
+                     'What falls but never breaks?',
+                     'What is it that goes with an automobile and comes with it; is of no use to it, and yet the automobile cannot move without it?',
+                     'You are in a race and you overtake the person who is in second place. What is your position now?',
+                     'Six drinking glasses stand in a row, with the first three full of juice and the next three empty. By moving only one glass can you arrange them so empty and full glasses alternate?',
+                     'A man is asked what his daughters look like. He answers, "They are all blondes, but two, all brunettes, but two, and all redheads, but two." How many daughters did he have?',
+                     'Why is it better to have round manhole covers than square ones?',
+                     'There is a waterlily in a pond, that doubles in size every day. If it takes the waterlily 180 days to cover the entire pond, how long does it take to cover half the pond?',
+                     'Identify the missing words that will make each statement true.\n\t1001 = A. N.',
+                     'Identify the missing words that will make each statement true.\n\t24 = H. in a D.',
+                     'Identify the missing words that will make each statement true.\n\t90 D. in a R. A.',
+                     'Identify the missing words that will make each statement true.\n\t	7 = W. of the A. W.',
+                     'Identify the missing words that will make each statement true.\n\t26	 L. of the A.',
+                     'Identify the missing words that will make each statement true.\n\t12 = I. in a F',
+                     'Identify the missing words that will make each statement true.\n\t 4 = Q. in a G',
+                     'WHAT LOOKS LIKE A HALF APPLE?',
+                     'I AM A FOUR LETTER WORD. I AM AN ANIMAL. YOU USE ME TO CALL YOUR DEAR ONES. WHO AM I?',
+                     'I HAVE ONE LETTER BUT MY NAME IS SPELLED WITH EIGHT. WHAT AM I?',
+                     'I CAN FILL UP AN ENTIRE ROOM AND STILL NOT TAKE UP ANY SPACE. WHO AM I?'
                      ]
-        random_number = random.randint(0, 25)
+        random_number = random.randint(0, 24)
         print("\nQuestion Number :" + str(random_number + 1))
         print(questions[random_number])
         response = input("Answer is Correct or Wrong: \nY\t\tN")
-        response_return(response)
+        return response_return(response)
 
     # IQ: Riddles (Level 3)
     elif game_number == 26:
         print("\nGame " + str(game_number) + ": Riddles (Level 3)")
-        questions = ['TANN KI SHAKTI , MANN KI SHAKTI', 'FRESH AND JUICY', 'TASTE THE THUNDER', 'THE COMPLETE MEN',
-                     'TASTE BHI , HEALTH BHI', 'BORN TOUGH', 'BEAUTY BAR OF FILM STARS', 'DESH KA NAMAK',
-                     'DIMAG KI BATTI JALA DE', 'BAJATE RAHO', 'ZINDAGI K SATH BHI, ZINDAGI K BAAD BHI',
-                     'SWAAD ZINDAGI KA',
-                     'HAR GHAR KUCH KEHTE HAI', 'DAAG TO ACHE HAI', 'ISSE SASTA AUR KAHI NHI',
-                     'BHUJAYE PYAAS BAAKI ALL BAKWASS!!', 'JII LALCHAYE RAHA NA JAYE', 'NO ONE CAN EAT JUST ONCE',
-                     'JIYO SIR UTHA K', 'KAISI JEEP LAPLAPAYI', 'KHAAO AUR KHUD JAAN JAAO', 'DIL KI DEAL',
-                     'AB HAR WISH HOGI PURI', 'CHALO NIKLO', 'DIL TO ROAMING HAI',
-                     'DISCOVER GREAT PLACES TO EAT AROUND YOU',
-                     'GALE KI KHARACH KA FIRST AID', 'THANDA THANDA COOL COOL', 'THE KING OF GOOD TIMES', 'TAKE CARE'
+        questions = ['There are 5 apples in the basket. They need to be divided among 5 people. How can you divide them so that each person has an apple and one apple stays in the basket?',
+        'Billie was born on December 26th yet her birthday always falls in the summer. How is this possible?',
+                     'Which is correct to say,” The yolk of egg is white” , “The yolk of the egg are white”?',
+                     'Imagine you’re driving a bus, at first stop two passengers step in and 9 passengers step down from the bus. On second stop 12 passengers step in and 1 passenger step down. Guess the colour of the dress of driver?'
                      ]
-        random_number = random.randint(0, 25)
+        random_number = random.randint(0, 3)
         print("\nQuestion Number :" + str(random_number + 1))
         print(questions[random_number])
         response = input("Answer is Correct or Wrong: \nY\t\tN")
-        response_return(response)
+        return response_return(response)
 
     # IQ: Reverse it out
     elif game_number == 27:
@@ -446,7 +456,8 @@ def game_chooser(game_number):
         print("\nQuestion Number :" + str(random_number + 1))
         print(questions[random_number])
         response = input("Answer is Correct or Wrong: \nY\t\tN")
-        response_return(response)
+        return response_return(response)
+
 
 # adding game scores
 def score_addition(player_number, game_name, game_owner, answer_status, lottery=0, bonus=0, penalty=0):
@@ -506,6 +517,7 @@ def penalty(player, game_number):
         return 60
 
 
+# defining bonus rules
 def bonus(player, game_number):
     bonus_points = [10, 20, 30, 40, 50, 60]
     bonus_points_number = bonus_points[random.randint(0, 5)]
@@ -533,14 +545,20 @@ def bonus(player, game_number):
 def lottery(player):
     lottery_number = random.randint(1, 10)
     print("\nLottery!!\n")
-    bidder_number = int(input("Enter the number between 1 and 10: "))
-    if lottery_number == bidder_number:
-        score_addition(player, "lottery", "None", False, 500)
-        print("Player " + str(player) + " won the lottery!")
+    print("Description: enter the number between 1 and 10. If Your number is lottery number "
+          "then you will get 500 points but if your number is not lottery number then 100 points will be deducted\n")
+    wanna_play=response_return(input("Want to play Lottery"))
+    if wanna_play==True:
+        bidder_number = int(input("Enter the number between 1 and 10: "))
+        if lottery_number == bidder_number:
+            score_addition(player, "lottery", "None", False, 500)
+            print("Player " + str(player) + " won the lottery!")
+        else:
+            score_addition(player, "lottery", "None", False, -100)
+            print("lottery number:", lottery_number, "\n better luck next time.")
     else:
-        score_addition(player, "lottery", "None", False, -100)
-        print("lottery number:", lottery_number, "\n better luck next time.")
-
+        print(wanna_play)
+        print("not interested")
 
 # checks who is the owner of particular game
 def who_is_game_owner(game_number, player):
@@ -558,7 +576,7 @@ def update_remaining_chances(player, game_number, last_game):
 
 # main executing function
 while True:
-    number_of_players = int(input('Enter the number of players'))  # number of players to be played
+    number_of_players = int(input('Enter the number of players: '))  # number of players to be played
     players_details_name = {}  # names of the players
     players_details_email = {}  # email of the players
     players_scores = {}  # score of the players
@@ -674,6 +692,8 @@ while True:
             if values > 27:
                 counter = counter + 1
         if counter == number_of_players:
+            print()
             for _ in range(1, number_of_players + 1):
                 print("Player " + str(_) + " score is " + str(players_scores[_]))
+            print("\n\t\t\tGAME OVER\n\n")
             break
