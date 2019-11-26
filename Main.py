@@ -2,7 +2,7 @@
 Project Name:Fun Monopoly
 Author: Adamaya Sharma
 last Modified: 24/11/2019
-Version: 1.3.3
+Version: 1.3.4
 
 Description; fun monopoly is a monopoly based game stimulation. there are total 27 blocks in this game 2 lottery,
 2 penalty,1 payday,1 bonus and rest are sub games.
@@ -156,15 +156,47 @@ def game_chooser(game_number):
     # TODO Add the theme music of movies in game number 6
     # Entertainment: Guess the Movie with the help of Music
     elif game_number == 6:
-        print("\nGame " + str(game_number) + ": Guess the Movie with the help of Music")
-        questions = ['Cool and Inspiring Background Music.mp3', 'Cool and Inspiring Background Music.mp3']
-        random_number = random.randint(0, 1)
+        print("\nGame " + str(game_number) + ": Guess the Movie with the help of Music\n")
+        print("Description: Identify the movie with the help of music\nNote: - Music will be played once")
+        questions = ['1._Hawa Hawa_ (Full Video Song) _ Mubarakan _ Anil K(MP3_160K)-[AudioTrimmer.com].mp3',
+                     '2._Main Aai Hoon U.P. Bihar Lootne_ Lyrical Video __(MP3_160K)-[AudioTrimmer.com].mp3',
+                     '3.A.R. Rahman - Tere Bina Best Video_ Guru_Aishwarya(MP3_160K)-[AudioTrimmer.com].mp3',
+                     '4.Aaj dil Shaayraana - Arijit Singh _ Holiday _ Aksh(MP3_160K)-[AudioTrimmer.com].mp3',
+                     '5.Abhi Abhi Toh Mile Ho Full Video Song Jism 2 _ Sun(MP3_160K)-[AudioTrimmer.com].mp3',
+                     '6.Afghan Jalebi (Ya Baba) FULL VIDEO Song _ Phantom(MP3_160K)-[AudioTrimmer.com].mp3',
+                     '7.Agent Vinod _Dil Mera Muft Ka_ Video Song Feat. Ka(MP3_160K)-[AudioTrimmer.com].mp3',
+                     '8.ALCOHOLIC - LYRICAL VIDEO _ The Shaukeens _ Yo Yo(MP3_160K)-[AudioTrimmer.com].mp3',
+                     '9.Baby besharam Lyrics video _ full video _ Naam Sha(MP3_160K)-[AudioTrimmer.com].mp3',
+                     '10.Fugly_ Dhup Chik Video Song _ Raftaar(MP3_160K)-[AudioTrimmer.com].mp3',
+                     '11.Gazab Ka Hai Din With Lyrics _ DIL JUUNGLEE _ Tani(MP3_160K)-[AudioTrimmer.com].mp3',
+                     '12.Hip hop pammy(MP3_160K)-[AudioTrimmer.com].mp3',
+                     '13.Iss Qadar Pyar Hai VIDEO Song - Ankit Tiwari _ Bha(MP3_160K)-[AudioTrimmer.com].mp3',
+                     '14.Jaanu _ Behen Hogi Teri _ Rajkummar Rao _ Shruti H(MP3_160K)-[AudioTrimmer.com].mp3',
+                     '15.Jazba - Full Song _ Ladies vs Ricky Bahl _ Anushka(MP3_160K)-[AudioTrimmer.com].mp3',
+                     '16.Kuch is tarah _ atif aslam_s kuch is tarah _ kuch(MP3_160K)-[AudioTrimmer.com].mp3',
+                     '17.Kuch Iss Tarah _ 1921 _ Zareen Khan _ Karan Kundrr(MP3_160K)-[AudioTrimmer.com].mp3',
+                     '18.Ladki Kyon - Full Song _ Hum Tum _ Saif Ali Khan _(MP3_160K)-[AudioTrimmer.com].mp3',
+                     '19.Lae Dooba - Full Video _ Aiyaary _ Sidharth Malhot(MP3_160K)-[AudioTrimmer.com].mp3',
+                     '20.Laung Da Lashkara (Patiala House) Full Song _ Feat(MP3_160K)-[AudioTrimmer.com].mp3',
+                     '21.Lut Gaye Besharam Full HD Video Song _ Ranbir Kapo(MP3_160K)-[AudioTrimmer.com].mp3',
+                     '22.Lyrical_ Apna Har Din Aise Jiyo _  Golmaal 3 _ Aja(MP3_160K)-[AudioTrimmer.com].mp3',
+                     '23.Muskaanein Jhooti Hai (Lyrics HD) - Talaash ft. Su(MP3_160K)-[AudioTrimmer.com].mp3',
+                     '24.Namak Halaal - Jawani Janeman Haseen Dilruba - Ash(MP3_160K)-[AudioTrimmer.com].mp3',
+                     '25.Piya Ke Bazaar Mein _ Humshakals HD Video Song _ S(MP3_160K) (mp3cut.net).mp3',
+                     '26.Sharara - Full Song _ Mere Yaar Ki Shaadi Hai _ Sh(MP3_160K) (mp3cut.net).mp3',
+                     '27.Shootout At Wadala - Laila Uncensored HD Full Vide(MP3_160K) (mp3cut.net).mp3',
+                     '28.Tera Fitoor Full Video - Genius _ Utkarsh Sharma_(MP3_160K) (mp3cut.net).mp3',
+                     '29.Tere Naina Jai Ho Full Video Song _ Salman Khan_ D(MP3_160K) (mp3cut.net).mp3',
+                     '30.Tose Naina- Mickey Virus _ HD _ Feat Elli Avram an(MP3_160K) (mp3cut.net).mp3',
+                     '31.Tu Hi Hai Aashiqui (DISHKIYAOON) Arijit Singh(MP3_160K) (mp3cut.net).mp3',
+                     '32.You are My Love Full Video Song _ Partner _ Salman(MP3_160K) (mp3cut.net).mp3']
+        random_number = random.randint(0, 31)
         mixer.init()
-        mixer.music.load(questions[random_number])
+        mixer.music.load("C:/Users/ADAMAYA SHARMA/PycharmProjects/monoply_fun_and_learn/Guess the Movie/" +questions[random_number])
         print("playing song " + str(random_number + 1))
         mixer.music.play()
-        time.sleep(30)
-        mixer.music.stop()
+        # time.sleep(30)
+        # mixer.music.stop()
 
         response = input("Answer is Correct or Wrong: \nY\t\tN")
         return response_return(response)
@@ -285,14 +317,26 @@ def game_chooser(game_number):
     # Music : Identify the Artist
     elif game_number == 15:
         print("\nGame " + str(game_number) + ": Identify the Artist")
-        questions = ['Cool and Inspiring Background Music.mp3', 'Cool and Inspiring Background Music.mp3']
-        random_number = random.randint(0, 1)
+        questions = ['1.Baby Doll-(Mr-Jatt (mp3cut.net).mp3','2.Chammak Challo - International Version-(Mr-Jatt (mp3cut.net).mp3',
+                     '3.Dheeme Dheeme-(Mr-Jatt (mp3cut.net)','4.Do Peg Maar-(Mr-Jatt (mp3cut.net).mp3',
+                     '5.Get Up Jawani - Honey Singh (MzcPunjab (mp3cut.net).mp3','6.Hud Hud Dabangg-(Mr-Jatt (mp3cut.net).mp3',
+                     '7.Humnava Mere-(Mr-Jatt (mp3cut.net).mp3','8.Jai Jai Shivshankar Song (War) (mp3cut.net)',
+                     '9.Lake Peg 4 by Parmish Verma- (mixtau (mp3cut.net).mp3','10.Lamberghini (mp3cut.net).mp3',
+                     '11.Leja Re-(Mr-Jatt (mp3cut.net).mp3','12.Luv Letter-(Mr-Jatt (mp3cut.net).mp3',
+                     '13.Machayenge(MP3Tau (mp3cut.net).mp3','14.Makhna (Drive) (mp3cut.net).mp3',
+                     '15.Mann Bharrya-(Mr-Jatt (mp3cut.net).mp3','16.Milegi Milegi-(Mr-Jatt (mp3cut.net).mp3',
+                     '17.Morni Banke (Badhaai Ho)(Mr-Jattt (mp3cut.net).mp3','18.Naagin (Vayu Aastha Gill Akasa) (mp3cut.net).mp3',
+                     '19.Naino Mein Sapna-(Mr-Jatt (mp3cut.net).mp3','20.Nazar Lag Jayegi-(Mr-Jatt (mp3cut.net).mp3',
+                     '21.Oh Ho Ho Ho  Remix -(Mr-Jatt (mp3cut.net).mp3','22.Parda-(Mr-Jatt (mp3cut.net).mp3',
+                     '23.Prem Ratan Dhan Payo-(Mr-Jatt (mp3cut.net).mp3','24.Putt_Jatt_Da_1 (mp3cut.net).mp3',
+                     '25.Radha-(Mr-Jatt (mp3cut.net).mp3','26.Rukh-(Mr-Jatt (mp3cut.net).mp3',
+                     '27.Socha Hai-(Mr-Jatt (mp3cut.net).mp3','28.Subhanallah -(Mr-Jatt (mp3cut.net).mp3',
+                     '29.Tum Se Hi-(Mr-Jatt (mp3cut.net).mp3','30.Yaarr Ni Milyaa-(Mr-Jatt (mp3cut.net).mp3']
+        random_number = random.randint(0, 29)
         mixer.init()
-        mixer.music.load(questions[random_number])
+        mixer.music.load("C:/Users/ADAMAYA SHARMA/PycharmProjects/monoply_fun_and_learn/Monopoly Identify The Artist/" + questions[random_number])
         print("playing song " + str(random_number + 1))
         mixer.music.play()
-        time.sleep(30)
-        mixer.music.stop()
 
         response = input("Answer is Correct or Wrong: \nY\t\tN")
         return response_return(response)
@@ -340,7 +384,23 @@ def game_chooser(game_number):
     # Music : Golden Era
     elif game_number == 20:
         print("\nGame " + str(game_number) + ": Golden Era")
-        questions = ['Cool and Inspiring Background Music.mp3', 'Cool and Inspiring Background Music.mp3']
+        questions = ['1.Aanewala Pal-(Mr-Jatt.com)-[AudioTrimmer.com].mp3','2.Aaye Ho Meri-(Mr-Jatt.com)-[AudioTrimmer.com].mp3',
+                     '3.Ajeeb Dastan Hai Ye-(Mr-Jatt.com)-[AudioTrimmer.com].mp3','4.Babuji Dheere Chalna - Geeta Dutt (MzcPunjab.Com)-[AudioTrimmer.com]',
+                     '5.Chabi Kho Jaye-(Mr-Jatt.com)-[AudioTrimmer.com].mp3','6.Chura Liya Hai Tumne Jo Dil Ko-(Mr-Jatt.com)-[AudioTrimmer.com]',
+                     '7.Do Lafzon Ki Hai Dil Ki Kahani-(Mr-Jatt.com)-[AudioTrimmer.com].mp3','8.Ek Ladki Bheegi Bhagi Si-(Mr-Jatt.com)-[AudioTrimmer.com].mp3',
+                     '9.Gulabi Aankhen Jo-(Mr-Jatt.com)-[AudioTrimmer.com].mp3','10.Honthon Mein Aisi Baat-(Mr-Jatt.com)-[AudioTrimmer.com].mp3',
+                     '11.Hothon Se Choo Lo Tum-(Mr-Jatt.com)-[AudioTrimmer.com].mp3','12.In Aankhon Ki Masti Mein  Umrao Jaan -(Mr-Jatt.com)-[AudioTrimmer.com]',
+                     '13.Mehbooba Mehbooba Sholay2-[AudioTrimmer.com].mp3','14.Mere Mehboob Qayamat Hogi-(Mr-Jatt.com)-[AudioTrimmer.com].mp3',
+                     '15.Mere Sapno Ki Rani Kab Aayegi Tu-(Mr-Jatt.com)-[AudioTrimmer.com].mp3',
+                     '16.Na Bole Tum-(Mr-Jatt.com)-[AudioTrimmer.com].mp3','17.Neele Neele Ambar-(Mr-Jatt.com)-[AudioTrimmer.com]',
+                     '18.O Mere Dil Ke Chain-(Mr-Jatt.com)-[AudioTrimmer.com].mp3','19.Pal Pal Dil Ke Paas  Blackmail -(Mr-Jatt.com)-[AudioTrimmer.com].mp3',
+                     '20.Pyar Kiya To Darna Kya-(Mr-Jatt.com)-[AudioTrimmer.com].mp3',
+                     '21.Tere Bina Zindagi Mein Aandhi-(Mr-Jatt.com)-[AudioTrimmer.com].mp3',
+                     '22.Uden Jab Jab Zulfen Teri (Naya Daur 1957) - Various (MzcPunjab.Com)-[AudioTrimmer.com].mp3',
+                     '23.Yashomati Maiya Se Bole Nandlala-(Mr-Jatt.com)-[AudioTrimmer.com]',
+                     '24.Yeh Chand Sa Roshan Chehra (Kashmir Ki Kali) - Akbar Sami (MzcPunjab.Com)-[AudioTrimmer.com].mp3',
+                     '25.Yeh Kahan Aa Gaye Hum-(Mr-Jatt.com)-[AudioTrimmer.com].mp3',
+                     '26.Yeh Sama Sama Hai Yeh Pyar Ka-(Mr-Jatt.com)-[AudioTrimmer.com].mp3']
         random_number = random.randint(0, 1)
         mixer.init()
         mixer.music.load(questions[random_number])
