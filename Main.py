@@ -403,7 +403,7 @@ def game_chooser(game_number):
                      '26.Yeh Sama Sama Hai Yeh Pyar Ka-(Mr-Jatt.com)-[AudioTrimmer.com].mp3']
         random_number = random.randint(0, 1)
         mixer.init()
-        mixer.music.load(questions[random_number])
+        mixer.music.load("C:/Users/ADAMAYA SHARMA/PycharmProjects/monoply_fun_and_learn/Golden Era"+questions[random_number])
         print("playing song " + str(random_number + 1))
         mixer.music.play()
         time.sleep(30)
