@@ -1,8 +1,8 @@
 '''
 Project Name:Fun Monopoly
 Author: Adamaya Sharma
-last Modified: 24/11/2019
-Version: 1.3.4
+last Modified: 30/11/2019
+Version: 1.3.5
 
 Description; fun monopoly is a monopoly based game stimulation. there are total 27 blocks in this game 2 lottery,
 2 penalty,1 payday,1 bonus and rest are sub games.
@@ -34,7 +34,6 @@ Game Sequence:
 27=> "reverse"
 '''
 # TODO check the file names in the_logo_quiz
-# TODO ADD MUSIC SECTION MUSIC
 # TODO ADD DISCRIPTION OF GAMES
 import random
 import PIL.Image
@@ -192,7 +191,8 @@ def game_chooser(game_number):
                      '32.You are My Love Full Video Song _ Partner _ Salman(MP3_160K) (mp3cut.net).mp3']
         random_number = random.randint(0, 31)
         mixer.init()
-        mixer.music.load("C:/Users/ADAMAYA SHARMA/PycharmProjects/monoply_fun_and_learn/Guess the Movie/" +questions[random_number])
+        mixer.music.load(
+            "C:/Users/ADAMAYA SHARMA/PycharmProjects/monoply_fun_and_learn/Guess the Movie/" + questions[random_number])
         print("playing song " + str(random_number + 1))
         mixer.music.play()
         # time.sleep(30)
@@ -317,24 +317,29 @@ def game_chooser(game_number):
     # Music : Identify the Artist
     elif game_number == 15:
         print("\nGame " + str(game_number) + ": Identify the Artist")
-        questions = ['1.Baby Doll-(Mr-Jatt (mp3cut.net).mp3','2.Chammak Challo - International Version-(Mr-Jatt (mp3cut.net).mp3',
-                     '3.Dheeme Dheeme-(Mr-Jatt (mp3cut.net)','4.Do Peg Maar-(Mr-Jatt (mp3cut.net).mp3',
-                     '5.Get Up Jawani - Honey Singh (MzcPunjab (mp3cut.net).mp3','6.Hud Hud Dabangg-(Mr-Jatt (mp3cut.net).mp3',
-                     '7.Humnava Mere-(Mr-Jatt (mp3cut.net).mp3','8.Jai Jai Shivshankar Song (War) (mp3cut.net)',
-                     '9.Lake Peg 4 by Parmish Verma- (mixtau (mp3cut.net).mp3','10.Lamberghini (mp3cut.net).mp3',
-                     '11.Leja Re-(Mr-Jatt (mp3cut.net).mp3','12.Luv Letter-(Mr-Jatt (mp3cut.net).mp3',
-                     '13.Machayenge(MP3Tau (mp3cut.net).mp3','14.Makhna (Drive) (mp3cut.net).mp3',
-                     '15.Mann Bharrya-(Mr-Jatt (mp3cut.net).mp3','16.Milegi Milegi-(Mr-Jatt (mp3cut.net).mp3',
-                     '17.Morni Banke (Badhaai Ho)(Mr-Jattt (mp3cut.net).mp3','18.Naagin (Vayu Aastha Gill Akasa) (mp3cut.net).mp3',
-                     '19.Naino Mein Sapna-(Mr-Jatt (mp3cut.net).mp3','20.Nazar Lag Jayegi-(Mr-Jatt (mp3cut.net).mp3',
-                     '21.Oh Ho Ho Ho  Remix -(Mr-Jatt (mp3cut.net).mp3','22.Parda-(Mr-Jatt (mp3cut.net).mp3',
-                     '23.Prem Ratan Dhan Payo-(Mr-Jatt (mp3cut.net).mp3','24.Putt_Jatt_Da_1 (mp3cut.net).mp3',
-                     '25.Radha-(Mr-Jatt (mp3cut.net).mp3','26.Rukh-(Mr-Jatt (mp3cut.net).mp3',
-                     '27.Socha Hai-(Mr-Jatt (mp3cut.net).mp3','28.Subhanallah -(Mr-Jatt (mp3cut.net).mp3',
-                     '29.Tum Se Hi-(Mr-Jatt (mp3cut.net).mp3','30.Yaarr Ni Milyaa-(Mr-Jatt (mp3cut.net).mp3']
+        questions = ['1.Baby Doll-(Mr-Jatt (mp3cut.net).mp3',
+                     '2.Chammak Challo - International Version-(Mr-Jatt (mp3cut.net).mp3',
+                     '3.Dheeme Dheeme-(Mr-Jatt (mp3cut.net)', '4.Do Peg Maar-(Mr-Jatt (mp3cut.net).mp3',
+                     '5.Get Up Jawani - Honey Singh (MzcPunjab (mp3cut.net).mp3',
+                     '6.Hud Hud Dabangg-(Mr-Jatt (mp3cut.net).mp3',
+                     '7.Humnava Mere-(Mr-Jatt (mp3cut.net).mp3', '8.Jai Jai Shivshankar Song (War) (mp3cut.net)',
+                     '9.Lake Peg 4 by Parmish Verma- (mixtau (mp3cut.net).mp3', '10.Lamberghini (mp3cut.net).mp3',
+                     '11.Leja Re-(Mr-Jatt (mp3cut.net).mp3', '12.Luv Letter-(Mr-Jatt (mp3cut.net).mp3',
+                     '13.Machayenge(MP3Tau (mp3cut.net).mp3', '14.Makhna (Drive) (mp3cut.net).mp3',
+                     '15.Mann Bharrya-(Mr-Jatt (mp3cut.net).mp3', '16.Milegi Milegi-(Mr-Jatt (mp3cut.net).mp3',
+                     '17.Morni Banke (Badhaai Ho)(Mr-Jattt (mp3cut.net).mp3',
+                     '18.Naagin (Vayu Aastha Gill Akasa) (mp3cut.net).mp3',
+                     '19.Naino Mein Sapna-(Mr-Jatt (mp3cut.net).mp3', '20.Nazar Lag Jayegi-(Mr-Jatt (mp3cut.net).mp3',
+                     '21.Oh Ho Ho Ho  Remix -(Mr-Jatt (mp3cut.net).mp3', '22.Parda-(Mr-Jatt (mp3cut.net).mp3',
+                     '23.Prem Ratan Dhan Payo-(Mr-Jatt (mp3cut.net).mp3', '24.Putt_Jatt_Da_1 (mp3cut.net).mp3',
+                     '25.Radha-(Mr-Jatt (mp3cut.net).mp3', '26.Rukh-(Mr-Jatt (mp3cut.net).mp3',
+                     '27.Socha Hai-(Mr-Jatt (mp3cut.net).mp3', '28.Subhanallah -(Mr-Jatt (mp3cut.net).mp3',
+                     '29.Tum Se Hi-(Mr-Jatt (mp3cut.net).mp3', '30.Yaarr Ni Milyaa-(Mr-Jatt (mp3cut.net).mp3']
         random_number = random.randint(0, 29)
         mixer.init()
-        mixer.music.load("C:/Users/ADAMAYA SHARMA/PycharmProjects/monoply_fun_and_learn/Monopoly Identify The Artist/" + questions[random_number])
+        mixer.music.load(
+            "C:/Users/ADAMAYA SHARMA/PycharmProjects/monoply_fun_and_learn/Monopoly Identify The Artist/" + questions[
+                random_number])
         print("playing song " + str(random_number + 1))
         mixer.music.play()
 
@@ -344,10 +349,17 @@ def game_chooser(game_number):
     # Music : Guess the Song
     elif game_number == 16:
         print("\nGame " + str(game_number) + ": Guess the song")
-        questions = ['Cool and Inspiring Background Music.mp3', 'Cool and Inspiring Background Music.mp3']
+        questions = ['1.Aakhn maare.mp3','2.Bekhayali.mp3','3.Channa mereya.mp3','4.Chogada.mp3','5.Coka coka.mp3',
+                     '6.Dekhte dekhte.mp3','7.Dil mein ho tm.mp3','8.duniya.mp3','9.Ek hazaron mein.mp3',
+                     '10.Gali gali.mp3','11.Galiyaan.mp3','12.Gerua.mp3','13.Hawayein.mp3','14.Humko hami se chura lo.mp3',
+                     '15.Jitni dafa.mp3','16.kal ho na ho.mp3','17.Kya baat hein.mp3','18.Leja re.mp3','19.Mahi ve.mp3',
+                     '20.Mein agr kahoon.mp3','21.Mile ho tm hmko.mp3','22.Naino ki to baat.mp3','23.Nazar na lg jaye.mp3',
+                     '24.Parada.mp3','25.Photo.mp3','26.Slowly slowly.mp3','27.Tera hua.mp3','28.Teri meri.mp3',
+                     '29.Tujhe kitna chahne lage hm.mp3','30.Tujme rab dikhta h.mp3','30.Tujme rab dikhta h.mp3',
+                     '31.Waada.mp3','32.Zaruri tha.mp3']
         random_number = random.randint(0, 1)
         mixer.init()
-        mixer.music.load(questions[random_number])
+        mixer.music.load('C:/Users/ADAMAYA SHARMA/PycharmProjects/monoply_fun_and_learn/Guess the Music/'+questions[random_number])
         print("playing song " + str(random_number + 1))
         mixer.music.play()
         time.sleep(30)
@@ -359,14 +371,25 @@ def game_chooser(game_number):
     # Music : Duet
     elif game_number == 17:
         print("\nGame " + str(game_number) + ": Duet")
-        questions = ['Cool and Inspiring Background Music.mp3', 'Cool and Inspiring Background Music.mp3']
-        random_number = random.randint(0, 1)
-        mixer.init()
-        mixer.music.load(questions[random_number])
-        print("playing song " + str(random_number + 1))
-        mixer.music.play()
-        time.sleep(30)
-        mixer.music.stop()
+        questions = ['Sharukh khan and Anushka sharma', 'Siddharth Malhotra and tara Sutaria',
+                     'Arjun Kapoor and shraddha Kapoor', 'Ranbir Kapoor and Anushka sharma',
+                     'Siddharth Malhotra and katrina kaif', 'Kartik aryan and Nusrat barucha',
+                     'Kriti sanon and Sushant singh Rajput', 'Irfan khan, hritik roshan and Abhay deol',
+                     'Ayushmaan Khurana and kriti sanon', 'Sushant singh Rajput and disha patani',
+                     'Disha patani and tiger shroff', 'Rajkumar rao and shruti hasan',
+                     'Akshay kumar and raveena tandon',
+                     'Kartik aryan and kriti sanon', 'Aamir khan and kajol',
+                     'Kartik aryan ,Ananya pandey and bhoomi padnekar', 'Salman khan and katrina kaif',
+                     'Varun Dhawan and alia bhatt', 'Tiger shroff and Jacqueline Fernandez',
+                     'Kareena Kapoor ,akshay kumar', 'Akshay kumar and john abrahm', 'Nora fatehi',
+                     'Kareena Kapoor and shahrukh khan', 'Sharukh khan and Deepika Padukone',
+                     'Hritik roshan and tiger shroff', 'Hritik roshan and vaani Kapoor',
+                     'Varun Dhawan and kiara Advani', 'Shahid Kapoor ands kiara Advani',
+                     'Akshay kumar and Iliana d’cruez', 'Shraddha Kapoor and Aditya roy kapoor'
+                     ]
+        random_number = random.randint(0, 29)
+        print("\nQuestion Number :" + str(random_number + 1))
+        print(questions[random_number])
 
         response = input("Answer is Correct or Wrong: \nY\t\tN")
         return response_return(response)
@@ -374,7 +397,24 @@ def game_chooser(game_number):
     # Music : Music Quiz
     elif game_number == 19:
         print("\nGame " + str(game_number) + ": Music Quiz")
-        questions = ['Cool and Inspiring Background Music.mp3', 'Cool and Inspiring Background Music.mp3']
+        questions = ['Lead roles in the song ‘Mast Magan’', 'Lead roles in the song ‘ Raat Bhar’',
+                     'Lead roles in the song ‘Ik Vaari aa’', 'Lead roles in the song ‘ Aaj  se teri’',
+                     'Lead roles in the song ‘ Teri Ore’', 'Lead roles in the song ‘ Saans’',
+                     'Lead roles in the song ‘Drama Queen’', 'Lead roles in the song ‘ Mujhe haq hein’',
+                     'Lead roles in the song ‘ Dagabaaz Re’', 'Lead roles in the song ‘Shukran allah’',
+                     'Lead roles in the song ‘Bol do na zara’',
+                     'Lead roles in the song ‘ Sooraj dooba hai’', 'Lead roles in the song ‘Sau Asmaan’',
+                     'Lead roles in the song ‘Mene tujko dekha’', 'Lead roles in the song ‘Dance k Legend’',
+                     'Lead roles in the song ‘Saiyaan superstar’', 'Lead roles in the song ‘ Mein agar kahoon’',
+                     'Lead roles in the song ‘Tareefan’', 'Lead roles in the song ‘ Ik Mulaqaat’',
+                     'Lead roles in the song ‘ Saanu Ek pal chain’', 'Lead roles in the song ‘Aashiq Banaya aapne’',
+                     'Lead roles in the song ‘Tera Yaar hoon mein’', 'Lead roles in the song ‘Tukur Tukur’',
+                     'Lead roles in the song ‘ Enna Sona’', 'Lead roles in the song ‘ Beech Beech Mein’',
+                     'Lead roles in the song ‘ Second Hand jawani’', 'Lead roles in the song ‘ Morni Banke’',
+                     'GUESS THE SONG “SOMETIMES IN MY HEART, THERE COMES A THOUGHT , AS YOU WERE MADE ONLY FOR ME…”',
+                     'GUESS THE SONG “ONE HOT TEACUP AND SOMEBODY TO SERVE IT..”',
+                     'GUESS THE SONG “THIS FRIENDSHIP, WE SHALL NEVER BREAK, WE COULD GIVE UP OUR LIVES FOR THE COMPANIONSHIP’S SAKE..”'
+                     ]
         random_number = random.randint(0, 1)
         print("\nQuestion Number :" + str(random_number + 1))
         print(questions[random_number])
@@ -384,16 +424,25 @@ def game_chooser(game_number):
     # Music : Golden Era
     elif game_number == 20:
         print("\nGame " + str(game_number) + ": Golden Era")
-        questions = ['1.Aanewala Pal-(Mr-Jatt.com)-[AudioTrimmer.com].mp3','2.Aaye Ho Meri-(Mr-Jatt.com)-[AudioTrimmer.com].mp3',
-                     '3.Ajeeb Dastan Hai Ye-(Mr-Jatt.com)-[AudioTrimmer.com].mp3','4.Babuji Dheere Chalna - Geeta Dutt (MzcPunjab.Com)-[AudioTrimmer.com]',
-                     '5.Chabi Kho Jaye-(Mr-Jatt.com)-[AudioTrimmer.com].mp3','6.Chura Liya Hai Tumne Jo Dil Ko-(Mr-Jatt.com)-[AudioTrimmer.com]',
-                     '7.Do Lafzon Ki Hai Dil Ki Kahani-(Mr-Jatt.com)-[AudioTrimmer.com].mp3','8.Ek Ladki Bheegi Bhagi Si-(Mr-Jatt.com)-[AudioTrimmer.com].mp3',
-                     '9.Gulabi Aankhen Jo-(Mr-Jatt.com)-[AudioTrimmer.com].mp3','10.Honthon Mein Aisi Baat-(Mr-Jatt.com)-[AudioTrimmer.com].mp3',
-                     '11.Hothon Se Choo Lo Tum-(Mr-Jatt.com)-[AudioTrimmer.com].mp3','12.In Aankhon Ki Masti Mein  Umrao Jaan -(Mr-Jatt.com)-[AudioTrimmer.com]',
-                     '13.Mehbooba Mehbooba Sholay2-[AudioTrimmer.com].mp3','14.Mere Mehboob Qayamat Hogi-(Mr-Jatt.com)-[AudioTrimmer.com].mp3',
+        questions = ['1.Aanewala Pal-(Mr-Jatt.com)-[AudioTrimmer.com].mp3',
+                     '2.Aaye Ho Meri-(Mr-Jatt.com)-[AudioTrimmer.com].mp3',
+                     '3.Ajeeb Dastan Hai Ye-(Mr-Jatt.com)-[AudioTrimmer.com].mp3',
+                     '4.Babuji Dheere Chalna - Geeta Dutt (MzcPunjab.Com)-[AudioTrimmer.com]',
+                     '5.Chabi Kho Jaye-(Mr-Jatt.com)-[AudioTrimmer.com].mp3',
+                     '6.Chura Liya Hai Tumne Jo Dil Ko-(Mr-Jatt.com)-[AudioTrimmer.com]',
+                     '7.Do Lafzon Ki Hai Dil Ki Kahani-(Mr-Jatt.com)-[AudioTrimmer.com].mp3',
+                     '8.Ek Ladki Bheegi Bhagi Si-(Mr-Jatt.com)-[AudioTrimmer.com].mp3',
+                     '9.Gulabi Aankhen Jo-(Mr-Jatt.com)-[AudioTrimmer.com].mp3',
+                     '10.Honthon Mein Aisi Baat-(Mr-Jatt.com)-[AudioTrimmer.com].mp3',
+                     '11.Hothon Se Choo Lo Tum-(Mr-Jatt.com)-[AudioTrimmer.com].mp3',
+                     '12.In Aankhon Ki Masti Mein  Umrao Jaan -(Mr-Jatt.com)-[AudioTrimmer.com]',
+                     '13.Mehbooba Mehbooba Sholay2-[AudioTrimmer.com].mp3',
+                     '14.Mere Mehboob Qayamat Hogi-(Mr-Jatt.com)-[AudioTrimmer.com].mp3',
                      '15.Mere Sapno Ki Rani Kab Aayegi Tu-(Mr-Jatt.com)-[AudioTrimmer.com].mp3',
-                     '16.Na Bole Tum-(Mr-Jatt.com)-[AudioTrimmer.com].mp3','17.Neele Neele Ambar-(Mr-Jatt.com)-[AudioTrimmer.com]',
-                     '18.O Mere Dil Ke Chain-(Mr-Jatt.com)-[AudioTrimmer.com].mp3','19.Pal Pal Dil Ke Paas  Blackmail -(Mr-Jatt.com)-[AudioTrimmer.com].mp3',
+                     '16.Na Bole Tum-(Mr-Jatt.com)-[AudioTrimmer.com].mp3',
+                     '17.Neele Neele Ambar-(Mr-Jatt.com)-[AudioTrimmer.com]',
+                     '18.O Mere Dil Ke Chain-(Mr-Jatt.com)-[AudioTrimmer.com].mp3',
+                     '19.Pal Pal Dil Ke Paas  Blackmail -(Mr-Jatt.com)-[AudioTrimmer.com].mp3',
                      '20.Pyar Kiya To Darna Kya-(Mr-Jatt.com)-[AudioTrimmer.com].mp3',
                      '21.Tere Bina Zindagi Mein Aandhi-(Mr-Jatt.com)-[AudioTrimmer.com].mp3',
                      '22.Uden Jab Jab Zulfen Teri (Naya Daur 1957) - Various (MzcPunjab.Com)-[AudioTrimmer.com].mp3',
@@ -403,7 +452,8 @@ def game_chooser(game_number):
                      '26.Yeh Sama Sama Hai Yeh Pyar Ka-(Mr-Jatt.com)-[AudioTrimmer.com].mp3']
         random_number = random.randint(0, 1)
         mixer.init()
-        mixer.music.load("C:/Users/ADAMAYA SHARMA/PycharmProjects/monoply_fun_and_learn/Golden Era"+questions[random_number])
+        mixer.music.load(
+            "C:/Users/ADAMAYA SHARMA/PycharmProjects/monoply_fun_and_learn/Golden Era" + questions[random_number])
         print("playing song " + str(random_number + 1))
         mixer.music.play()
         time.sleep(30)
@@ -445,11 +495,12 @@ def game_chooser(game_number):
     elif game_number == 23:
         print("\nGame " + str(game_number) + ": Read Out The Color")
         questions = [
-            '1.png','2.png','3.png','4.png','5.png'
-            ]
+            '1.png', '2.png', '3.png', '4.png', '5.png'
+        ]
         random_number = random.randint(0, 4)
         image = PIL.Image.open(
-            "C:/Users/ADAMAYA SHARMA/PycharmProjects/monoply_fun_and_learn/Read out the color/" + questions[random_number])
+            "C:/Users/ADAMAYA SHARMA/PycharmProjects/monoply_fun_and_learn/Read out the color/" + questions[
+                random_number])
         image.show()
         print("Answer: Image number " + str(random_number + 1))
         response = input("Answer is Correct or Wrong: \nY\t\tN")
@@ -487,11 +538,12 @@ def game_chooser(game_number):
     # IQ: Riddles (Level 3)
     elif game_number == 26:
         print("\nGame " + str(game_number) + ": Riddles (Level 3)")
-        questions = ['There are 5 apples in the basket. They need to be divided among 5 people. How can you divide them so that each person has an apple and one apple stays in the basket?',
-        'Billie was born on December 26th yet her birthday always falls in the summer. How is this possible?',
-                     'Which is correct to say,” The yolk of egg is white” , “The yolk of the egg are white”?',
-                     'Imagine you’re driving a bus, at first stop two passengers step in and 9 passengers step down from the bus. On second stop 12 passengers step in and 1 passenger step down. Guess the colour of the dress of driver?'
-                     ]
+        questions = [
+            'There are 5 apples in the basket. They need to be divided among 5 people. How can you divide them so that each person has an apple and one apple stays in the basket?',
+            'Billie was born on December 26th yet her birthday always falls in the summer. How is this possible?',
+            'Which is correct to say,” The yolk of egg is white” , “The yolk of the egg are white”?',
+            'Imagine you’re driving a bus, at first stop two passengers step in and 9 passengers step down from the bus. On second stop 12 passengers step in and 1 passenger step down. Guess the colour of the dress of driver?'
+        ]
         random_number = random.randint(0, 3)
         print("\nQuestion Number :" + str(random_number + 1))
         print(questions[random_number])
@@ -607,8 +659,8 @@ def lottery(player):
     print("\nLottery!!\n")
     print("Description: enter the number between 1 and 10. If Your number is lottery number "
           "then you will get 500 points but if your number is not lottery number then 100 points will be deducted\n")
-    wanna_play=response_return(input("Want to play Lottery"))
-    if wanna_play==True:
+    wanna_play = response_return(input("Want to play Lottery"))
+    if wanna_play == True:
         bidder_number = int(input("Enter the number between 1 and 10: "))
         if lottery_number == bidder_number:
             score_addition(player, "lottery", "None", False, 500)
@@ -619,6 +671,7 @@ def lottery(player):
     else:
         print(wanna_play)
         print("not interested")
+
 
 # checks who is the owner of particular game
 def who_is_game_owner(game_number, player):
