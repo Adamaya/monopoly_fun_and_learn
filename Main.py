@@ -687,7 +687,8 @@ def lottery(player):
     print("Description: enter the number between 1 and 10. If Your number is lottery number "
           "then you will get 300 points but if your number is not lottery number then 100 points will be deducted\n")
     speak.Speak("Description: enter the number between 1 and 10. If Your number is lottery number "
-          "then you will get 300 points. But if your number is not lottery number then 100 points will be deducted.\n")
+          "then you will get 300 points. But if your number is not lottery number then 100 points will be deducted. "
+                "Want to play lottery?\n")
 
     wanna_play = response_return(input("Want to play Lottery"))
     if wanna_play == True:
@@ -695,7 +696,7 @@ def lottery(player):
         if lottery_number == bidder_number:
             score_addition(player, "lottery", "None", False, 300)
             print("\n\tPlayer " + str(player) + " won the lottery!\n")
-            speak.Speak("\n\tPlayer " + str(player) + " won the lottery!\n")
+            speak.Speak("\n\tPlayer " + str(player) + " won the lottery! 300 points are added\n")
         else:
             score_addition(player, "lottery", "None", False, -100)
             print("\n\tlottery number:", lottery_number, "\n\tbetter luck next time.\n")
@@ -855,8 +856,13 @@ while True:
                 counter1 = counter1 + 1
         if counter1 == number_of_players:
             print()
+            speak.Speak("final scores of the players are:\n")
+            result=[]
             for _ in range(1, number_of_players + 1):
                 print("Player " + str(_) + " score is " + str(players_scores[_]))
+                speak.Speak("Player " + str(_) + " score is " + str(players_scores[_]))
+                result.append(players_scores[_])
+                result.sort()
             print("\n\t\t\tGAME OVER\n\n")
             speak.Speak("GAME OVER\n"
                         "Hope you enjoyed the Game!")
