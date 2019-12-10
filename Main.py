@@ -1,8 +1,8 @@
 '''
 Project Name:Fun Monopoly
 Author: Adamaya Sharma
-last Modified: 02/12/2019
-Version: 1.3.6
+last Modified: 10/12/2019
+Version: 1.4.0
 
 Description; fun monopoly is a monopoly based game stimulation. there are total 27 blocks in this game 2 lottery,
 2 penalty,1 payday,1 bonus and rest are sub games.
@@ -37,6 +37,7 @@ Game Sequence:
 # TODO ADD DISCRIPTION OF GAMES
 import random
 import PIL.Image
+from win32com.client import Dispatch
 import time
 from pygame import mixer  # Load the popular external library
 
@@ -59,6 +60,7 @@ def game_chooser(game_number):
     # Music : Identify the Artist
     if game_number == 1:
         print("\nGame " + str(game_number) + ": Identify the Artist")
+        speak.Speak("\nGame " + str(game_number) + ": Identify the Artist")
         questions = ['1.Baby Doll-(Mr-Jatt (mp3cut.net).mp3',
                      '2.Chammak Challo - International Version-(Mr-Jatt (mp3cut.net).mp3',
                      '3.Dheeme Dheeme-(Mr-Jatt (mp3cut.net).mp3', '4.Do Peg Maar-(Mr-Jatt (mp3cut.net).mp3',
@@ -93,6 +95,7 @@ def game_chooser(game_number):
     # Music : Guess the Song
     elif game_number == 2:
         print("\nGame " + str(game_number) + ": Guess the song")
+        speak.Speak("\nGame " + str(game_number) + ": Guess the song")
         questions = ['1.Aakhn maare.mp3','2.Bekhayali.mp3','3.Channa mereya.mp3','4.Chogada.mp3','5.Coka coka.mp3',
                      '6.Dekhte dekhte.mp3','7.Dil mein ho tm.mp3','8.duniya.mp3','9.Ek hazaron mein.mp3',
                      '10.Gali gali.mp3','11.Galiyaan.mp3','12.Gerua.mp3','13.Hawayein.mp3','14.Humko hami se chura lo.mp3',
@@ -114,6 +117,7 @@ def game_chooser(game_number):
     # Music : Duet
     elif game_number == 3:
         print("\nGame " + str(game_number) + ": Duet")
+        speak.Speak("\nGame " + str(game_number) + ": Duet")
         questions = ['Sharukh khan and Anushka sharma', 'Siddharth Malhotra and tara Sutaria',
                      'Arjun Kapoor and shraddha Kapoor', 'Ranbir Kapoor and Anushka sharma',
                      'Siddharth Malhotra and katrina kaif', 'Kartik aryan and Nusrat barucha',
@@ -133,6 +137,7 @@ def game_chooser(game_number):
         random_number = random.randint(0, 29)
         print("\nQuestion Number :" + str(random_number + 1))
         print('\n'+questions[random_number])
+        speak.Speak('\n' + questions[random_number])
 
         response = input("\nAnswer is Correct or Wrong: \nY\t\tN")
         return response_return(response)
@@ -140,6 +145,8 @@ def game_chooser(game_number):
     # Music : Music Quiz
     elif game_number == 5:
         print("\nGame " + str(game_number) + ": Music Quiz")
+
+        speak.Speak("\nGame " + str(game_number) + ": Music Quiz")
         questions = ['Lead roles in the song ‘Mast Magan’', 'Lead roles in the song ‘ Raat Bhar’',
                      'Lead roles in the song ‘Ik Vaari aa’', 'Lead roles in the song ‘ Aaj  se teri’',
                      'Lead roles in the song ‘ Teri Ore’', 'Lead roles in the song ‘ Saans’',
@@ -161,12 +168,14 @@ def game_chooser(game_number):
         random_number = random.randint(0, 29)
         print("\nQuestion Number :" + str(random_number + 1))
         print('\n'+questions[random_number])
+        speak.Speak('\nYOUR QUESTION IS. '+questions[random_number])
         response = input("\nAnswer is Correct or Wrong: \nY\t\tN")
         return response_return(response)
 
     # Music : Golden Era
     elif game_number == 6:
         print("\nGame " + str(game_number) + ": Golden Era")
+        speak.Speak("\nGame " + str(game_number) + ": Golden Era")
         questions = ['1.Aanewala Pal-(Mr-Jatt.com)-[AudioTrimmer.com].mp3',
                      '2.Aaye Ho Meri-(Mr-Jatt.com)-[AudioTrimmer.com].mp3',
                      '3.Ajeeb Dastan Hai Ye-(Mr-Jatt.com)-[AudioTrimmer.com].mp3',
@@ -207,13 +216,14 @@ def game_chooser(game_number):
     # Entertainment: Guess the movie (with the help of dialogue)
     elif game_number == 8:
         print("\nGame " + str(game_number) + ": GUESS THE MOVIE (with the help of dialogue)")
+        speak.Speak("\nGame " + str(game_number) + ": GUESS THE MOVIE (with the help of dialogue)")
         questions = ["TENSION LENE KA NHI SIRF DENE KA", "LIFE MAI SBSE BADA RISK HOTA H KBHI KOI RISK NHI LENA",
                      "MAI APNI FAVOUITE HOON", "TUMSE NA HO PAYEGA", "PALAT, PALAT, PALAT!!!",
                      "AAP CONVINCE HOGYE KI MAI AUR BOLU",
                      "USKA TO NA BAD LUCK HI KHRAAB HAI",
                      "AADMI TBHI BADA BNTA HAI JB BADE LOG USSE MILNE LA ITNEZAAR KARE",
                      "KAHI PR PAHUCHNE K LIYE KAHI SE NIKLNA ZARURI H", "INSAAN NAAM MAI MAZHAB DHUND LETA HAI",
-                     "KHAAMOSH!!!!", "PREM NAAM HAI MERA , PREM CHOPRA", "PICHAR ABHI BAAKI HAI MERE DOST",
+                     "KHAAMOSH!!!!", "PREM NAAM HAI MERA , PREM CHOPRA", "PICTURE ABHI BAAKI HAI MERE DOST",
                      "PUSHPA I  HATE TEARS!!!", "BABUMUSHAI ZINDAGI BADI HONI CHAHIYE , LAMBI NHI..",
                      "AAJ MERE PASS GADI HAI, BAGLA HAI, PAISA HAI, TMAHRE PASS KYA HAI??", "MERE KARAN ARJUN AYENGE!!",
                      "RISHTE MEIN TO HUM TMHARE BAAP LAGTE HAI",
@@ -231,23 +241,27 @@ def game_chooser(game_number):
         random_number = random.randint(0, 29)
         print("\nDialogue Number :" + str(random_number + 1)+'\n')
         print(questions[random_number])
+        speak.Speak('\nYOUR QUESTION IS. ' + questions[random_number])
         response = input("\nAnswer is Correct or Wrong: \nY\t\tN")
         return response_return(response)
 
     # Entertainment: THEME BASED MOVIES
     elif game_number == 9:
         print("\nGame " + str(game_number) + ": THEME BASED MOVIES")
+        speak.Speak("\nGame " + str(game_number) + ": THEME BASED MOVIES")
         questions = ["5 MOVIES RELATED TO – SPORTS", "5 PATRIOTIC MOVIES", "5 WOMEN EMPOWERMENT MOVIES",
                      "5 HORROR MOVIES", "5 ROMANTIC MOVIES", "5 COMEDY MOVIES", "5 THRILLER MOVIES"]
         random_number = random.randint(0, 6)
         print("\nQuestion Number :" + str(random_number + 1)+'\n')
         print(questions[random_number])
+        speak.Speak('\nYOUR QUESTION IS. ' + questions[random_number])
         response = input("\nAnswer is Correct or Wrong: \nY\t\tN\n")
         return response_return(response)
 
     # Entertainment: BOLLYWOOD QUIZ
     elif game_number == 10:
         print("\nGame " + str(game_number) + ": BOLLYWOOD QUIZ")
+        speak.Speak("\nGame " + str(game_number) + ": BOLLYWOOD QUIZ")
         questions = ["FATHER OF SALMAAN KHAN", "HOW MANY BROTHERS DO SALMAAN KHAN HAVE?",
                      "FIRST FILM OF SHAHID KAPOOR",
                      "FIRST FILM OF AMITABH BACHAN", "FIRST FILM OF SALMAAN KHAN", "FIRST FILM OF RANVEER SINGH",
@@ -268,6 +282,7 @@ def game_chooser(game_number):
         random_number = random.randint(0, 29)
         print("\nQuestion Number :" + str(random_number + 1)+'\n')
         print(questions[random_number])
+        speak.Speak('\nYOUR QUESTION IS. ' + questions[random_number])
         response = input("\nAnswer is Correct or Wrong: \nY\t\tN")
         return response_return(response)
 
@@ -288,7 +303,7 @@ def game_chooser(game_number):
                      "WHICH STONE DOES DR STRANGE HAD WITH HIM", "WHAT WAS THE NAME OF THANOS DAUGHTERS",
                      "WORD USED TO ACTIVATE IRON MAN’S SPECS(IN SPIDERMAN FAR FROM HOME )",
                      "WHEN DID STANLEE DIED?",
-                     "T’CHALLA IS THE BLACK PANTHER SO WHAT IS HIS FATHER’S NAME ?"
+                     "T’CHALLA IS THE BLACK PANTHER SO WHAT IS HIS FATHER’S NAME ?",
                      "REAL VOICE BEHIND DOREAMON", "NAME ANY 5 CHARACTER OF MICKEY MOUSE",
                      "NAME THE THREE POWERPUFF GIRLS",
                      "BROTHER’S NAME OF PRETTI IN HADI MERA BUDDY",
@@ -297,13 +312,16 @@ def game_chooser(game_number):
         random_number = random.randint(0, 20)
         print("\nQuestion Number :" + str(random_number + 1)+'\n')
         print(questions[random_number])
+        speak.Speak('\nYOUR QUESTION IS. ' + questions[random_number])
         response = input("\nAnswer is Correct or Wrong: \nY\t\tN")
         return response_return(response)
 
     # Entertainment: Guess the Movie with the help of Music
     elif game_number == 13:
         print("\nGame " + str(game_number) + ": Guess the Movie with the help of Music\n")
+        speak.Speak("\nGame " + str(game_number) + ": Guess the Movie with the help of Music\n")
         print("Description: Identify the movie with the help of music\nNote: - Music will be played once")
+        speak.Speak("Description: Identify the movie with the help of music\nNote: - Music will be played once")
         questions = ['1._Hawa Hawa_ (Full Video Song) _ Mubarakan _ Anil K(MP3_160K)-[AudioTrimmer.com].mp3',
                      '2._Main Aai Hoon U.P. Bihar Lootne_ Lyrical Video __(MP3_160K)-[AudioTrimmer.com].mp3',
                      '3.A.R. Rahman - Tere Bina Best Video_ Guru_Aishwarya(MP3_160K)-[AudioTrimmer.com].mp3',
@@ -349,6 +367,7 @@ def game_chooser(game_number):
     # Technology and Famous Personality: The LOGO Quiz
     elif game_number == 15:
         print("\nGame " + str(game_number) + ": The LOGO Quiz")
+        speak.Speak("\nGame " + str(game_number) + ": The LOGO Quiz")
         questions = ['adobe.png', 'Airtel.jpg', 'alienware.jpg', 'apple.jpg', 'bentley.jpg', 'blackberry.png',
                      'Boeing.png',
                      'Cisco.png', 'cn_logo.jpg', 'DHL.png', 'dodge.png', 'dove.png', 'dreamworks.jpg', 'EA Sports.png',
@@ -366,6 +385,7 @@ def game_chooser(game_number):
     # Technology and Famous Personality: THE FAMOUS PERSONALITY
     elif game_number == 16:
         print("\nGame " + str(game_number) + ": THE FAMOUS PERSONALITY")
+        speak.Speak("\nGame " + str(game_number) + ": THE FAMOUS PERSONALITY")
         questions = ['Albert Einstein.jpg', 'denial redcliff.jpg', 'dr APJ Abdul Kalam.jpg', 'Elon Musk.jpg',
                      'Jack ma.jpg','jenifer lawrence.jpg', 'jk rowling.jpg', 'leonardo dicaprio.jpg',
                      'martin luthor king junior.jpg','messi.jpg','muhammad ali.jpg','Nicola Tesla.png','pele.png',
@@ -382,6 +402,7 @@ def game_chooser(game_number):
     # Technology and Famous Personality: Logical puzzle
     elif game_number == 17:
         print("\nGame " + str(game_number) + ": Logical Puzzle")
+        speak.Speak("\nGame " + str(game_number) + ": Logical Puzzle")
         questions = [
             'THERE ARE TWO GIRLS ONE IS FACING THE SOUTH THE OTHER FACES THE NORTH YET THEY CAN SEE EACH OTHER WITHOUT A MIRROR, HOW CAN IT BE?',
             'WHAT CAN YOU SEE ONCE IN A MIN, TWICE IN A MOMENT, AND NEVER IN A THOUSAND YEAR?',
@@ -413,12 +434,14 @@ def game_chooser(game_number):
         random_number = random.randint(0, 29)
         print("\nQuestion Number :" + str(random_number + 1)+'\n')
         print(questions[random_number])
+        speak.Speak("your question is. "+questions[random_number])
         response = input("\nAnswer is Correct or Wrong: \nY\t\tN")
         return response_return(response)
 
     # Technology and Famous Personality: Basic GK
     elif game_number == 19:
         print("\nGame " + str(game_number) + ": Basic GK")
+        speak.Speak("\nGame " + str(game_number) + ": Basic GK")
         questions = ['LANGUAGE SPOKEN BY PEOPLE IN PAKISTAN', 'WORLD’S LARGEST DESERT',
                      'METAL WHOSE SALTS ARE SESITIVE TO LIGHT IS', 'MOUNT EVEREST IS LOACTED IN',
                      'DEVICE USED FOR MEASURING ALTITUDE IS', 'WHICH IS CONSIDERED AS BIGGEST PORT IN INDIA',
@@ -437,12 +460,14 @@ def game_chooser(game_number):
         random_number = random.randint(0, 29)
         print("\nQuestion Number :" + str(random_number + 1)+'\n')
         print(questions[random_number])
+        speak.Speak("your question is. "+questions[random_number])
         response = input("\nAnswer is Correct or Wrong: \nY\t\tN")
         return response_return(response)
 
     # Technology and Famous Personality: Slogans
     elif game_number == 20:
         print("\nGame " + str(game_number) + ": Slogans")
+        speak.Speak("\nGame " + str(game_number) + ": Slogans")
         questions = ['TANN KI SHAKTI , MANN KI SHAKTI', 'FRESH AND JUICY', 'TASTE THE THUNDER', 'THE COMPLETE MEN',
                      'TASTE BHI , HEALTH BHI', 'BORN TOUGH', 'BEAUTY BAR OF FILM STARS', 'DESH KA NAMAK',
                      'DIMAG KI BATTI JALA DE', 'BAJATE RAHO', 'ZINDAGI K SATH BHI, ZINDAGI K BAAD BHI',
@@ -457,6 +482,7 @@ def game_chooser(game_number):
         random_number = random.randint(0, 31)
         print("\nQuestion Number :" + str(random_number + 1)+'\n')
         print(questions[random_number])
+        speak.Speak("your question is. "+questions[random_number])
         response = input("\nAnswer is Correct or Wrong: \nY\t\tN")
         return response_return(response)
 
@@ -464,6 +490,7 @@ def game_chooser(game_number):
     # IQ: Riddles (Level 1)
     elif game_number == 22:
         print("\nGame " + str(game_number) + ": Riddles (Level 1)")
+        speak.Speak("\nGame " + str(game_number) + ": Riddles (Level 1)")
         questions = [
             'You begin reading a book 240 pages long. If you read half of the remaining book each day how long would it take you to finish the book?',
             'Add a single line to the equation in order to make it true.\n105 + 2 + 5 = 350',
@@ -487,12 +514,14 @@ def game_chooser(game_number):
         random_number = random.randint(0, 19)
         print("\nQuestion Number :" + str(random_number + 1)+'\n')
         print(questions[random_number])
+        speak.Speak("your question is. "+questions[random_number])
         response = input("\nAnswer is Correct or Wrong: \nY\t\tN")
         return response_return(response)
 
     # IQ: Read Out The Color
     elif game_number == 23:
         print("\nGame " + str(game_number) + ": Read Out The Color")
+        speak.Speak("\nGame " + str(game_number) + ": Read Out The Color")
         questions = [
             '1.png', '2.png', '3.png', '4.png', '5.png'
         ]
@@ -508,6 +537,7 @@ def game_chooser(game_number):
     # IQ: Riddles (Level 2)
     elif game_number == 24:
         print("\nGame " + str(game_number) + ": Riddles (Level 2)")
+        speak.Speak("\nGame " + str(game_number) + ": Riddles (Level 2)")
         questions = ['What is full of holes but still holds water?', 'What has no content yet you can see it?',
                      'What falls but never breaks?',
                      'What is it that goes with an automobile and comes with it; is of no use to it, and yet the automobile cannot move without it?',
@@ -531,12 +561,14 @@ def game_chooser(game_number):
         random_number = random.randint(0, 18)
         print("\nQuestion Number :" + str(random_number + 1)+'\n')
         print(questions[random_number])
+        speak.Speak("your question is. "+questions[random_number])
         response = input("\nAnswer is Correct or Wrong: \nY\t\tN")
         return response_return(response)
 
     # IQ: Riddles (Level 3)
     elif game_number == 26:
         print("\nGame " + str(game_number) + ": Riddles (Level 3)")
+        speak.Speak("\nGame " + str(game_number) + ": Riddles (Level 3)")
         questions = [
             'There are 5 apples in the basket. They need to be divided among 5 people. How can you divide them so that each person has an apple and one apple stays in the basket?',
             'Billie was born on December 26th yet her birthday always falls in the summer. How is this possible?',
@@ -546,17 +578,21 @@ def game_chooser(game_number):
         random_number = random.randint(0, 3)
         print("\nQuestion Number :" + str(random_number + 1)+'\n')
         print(questions[random_number])
+        speak.Speak("your question is "+questions[random_number])
         response = input("\nAnswer is Correct or Wrong: \nY\t\tN")
         return response_return(response)
 
     # IQ: Reverse it out
     elif game_number == 27:
-        print("\nGame " + str(game_number) + ": Reverse it Out")
-        questions = ['number upto 47 to 15','number 103 to 87','number 113 to 77','number 127 to 91'
+        print("\nGame " + str(game_number) + ": Read it Reverse")
+        speak.Speak("\nGame " + str(game_number) + ": Reverse it reverse")
+        questions = ['number upto 15 to 47','number 87 to 103','number 77 to 113','number 91 to 127'
                      ]
         random_number = random.randint(0, 3)
         print("\nQuestion Number :" + str(random_number + 1)+'\n')
         print(questions[random_number])
+
+        speak.Speak("your question is speak "+questions[random_number]+" in reverse order")
         response = input("\nAnswer is Correct or Wrong: \nY\t\tN")
         return response_return(response)
 
@@ -586,7 +622,7 @@ def score_addition(player_number, game_name, game_owner, answer_status, lottery=
     elif game_name == "payday":
         players_scores[player_number] = players_scores[player_number] + 50
 
-    # if player gives the write answers then player is game owner
+    # if player gives the right answers then player is game owner
     if game_owner == player_number and answer_status == True:
         game_owners[game_name] = player_number
     elif game_owner == "None":
@@ -647,17 +683,23 @@ def bonus(player, game_number):
 def lottery(player):
     lottery_number = random.randint(1, 10)
     print("\nLottery!!\n")
+    speak.Speak("\nLottery!!\n")
     print("Description: enter the number between 1 and 10. If Your number is lottery number "
           "then you will get 300 points but if your number is not lottery number then 100 points will be deducted\n")
+    speak.Speak("Description: enter the number between 1 and 10. If Your number is lottery number "
+          "then you will get 300 points. But if your number is not lottery number then 100 points will be deducted.\n")
+
     wanna_play = response_return(input("Want to play Lottery"))
     if wanna_play == True:
         bidder_number = int(input("Enter the number between 1 and 10: "))
         if lottery_number == bidder_number:
             score_addition(player, "lottery", "None", False, 300)
             print("\n\tPlayer " + str(player) + " won the lottery!\n")
+            speak.Speak("\n\tPlayer " + str(player) + " won the lottery!\n")
         else:
             score_addition(player, "lottery", "None", False, -100)
             print("\n\tlottery number:", lottery_number, "\n\tbetter luck next time.\n")
+            speak.Speak("\n\tlottery number:"+ str(lottery_number)+ "\n\tbetter luck next time.\n")
     else:
         print("\nNot Interested\n")
 
@@ -729,12 +771,18 @@ while True:
         players_details_name[_] = input("Enter Player " + str(_) + " Name: ")
         # players_details_email[_] = input("Enter Player " + str(_) + " Email")
 
+    speak = Dispatch("SAPI.SpVoice")
+    speak.Speak("Description and rules of the games:\n. Each player will play 1 round only. "
+                "\n. According to their dice number game will be organised. \n. If a player wins any game and another"
+                " player arrives at that game then 1 by fourth points will be added to 1st winner of that particular game.\n"
+                " lets begin the game!")
     while True:
         for player in range(1, number_of_players + 1):
             if players_remaining_chances[player] >= 0:
                 # checking that a player is in jail or not
                 if last_game_by_player[player] == 14 and players_who_loose_chance[player] == 1:
                     print("\n\tPlayer "+str(player) + " Wait for next chance.\n")
+                    speak.Speak("\n\tPlayer "+str(player) + " Wait for next chance.\n")
                     players_who_loose_chance[player] = 0
                     continue
                 while True:
@@ -748,16 +796,21 @@ while True:
                 if game_number > 27:
                     update_remaining_chances(player, game_number, last_game_by_player[player])
                     print("\n\t\tPlayer " + str(player) + " has completed his round\n")
+                    speak.Speak("\n\t\tPlayer " + str(player) + " has completed his round\n")
                     last_game_by_player[player] = game_number
                     continue
                 elif game_number == 4 or game_number == 18:
                     update_remaining_chances(player, game_number, last_game_by_player[player])
-                    print("\n\tPenalty! of ", penalty(player, game_number)," points\n")
+                    penalty_points= penalty(player, game_number)
+                    print("\n\tPenalty! of ",penalty_points," points\n")
+                    speak.Speak("\n\tPenalty! of "+ str(penalty_points)+" points\n")
                     last_game_by_player[player] = game_number
                     continue
                 elif game_number == 11 or game_number == 25:
                     update_remaining_chances(player, game_number, last_game_by_player[player])
-                    print("\n\tBonus! of ", bonus(player, game_number)," points\n")
+                    bonus_points=bonus(player, game_number)
+                    print("\n\tBonus! of ", bonus_points," points\n")
+                    speak.Speak("\n\tBonus! of "+str(bonus_points)+" points\n")
                     last_game_by_player[player] = game_number
                     continue
                 elif game_number == 7:
@@ -770,10 +823,13 @@ while True:
                     update_remaining_chances(player, game_number, last_game_by_player[player])
                     players_who_loose_chance[player] = 1
                     last_game_by_player[player] = game_number
+                    print("Wait in jail for 1 chance")
+                    speak.Speak("Wait in jail for 1 chance")
                     continue
                 elif game_number == 21:
                     update_remaining_chances(player, game_number, last_game_by_player[player])
                     print('\n\tPayday: add 50 points\n')
+                    speak.Speak('\n\tPayday: add 50 points\n')
                     score_addition(player, "payday", "None", False)
                     last_game_by_player[player] = game_number
                     continue
@@ -802,4 +858,6 @@ while True:
             for _ in range(1, number_of_players + 1):
                 print("Player " + str(_) + " score is " + str(players_scores[_]))
             print("\n\t\t\tGAME OVER\n\n")
+            speak.Speak("GAME OVER\n"
+                        "Hope you enjoyed the Game!")
             break
