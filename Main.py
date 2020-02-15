@@ -33,7 +33,6 @@ Game Sequence:
 25=> "bonus"                                            26=> "riddles_level_3"
 27=> "reverse"
 '''
-# TODO check the file names in the_logo_quiz
 # TODO ADD DISCRIPTION OF GAMES
 import random
 import PIL.Image
@@ -118,6 +117,7 @@ def game_chooser(game_number):
     elif game_number == 3:
         print("\nGame " + str(game_number) + ": Duet")
         speak.Speak("\nGame " + str(game_number) + ": Duet")
+        speak.Speak("Name the song in which these bollywood stars worked together.")
         questions = ['Sharukh khan and Anushka sharma', 'Siddharth Malhotra and tara Sutaria',
                      'Arjun Kapoor and shraddha Kapoor', 'Ranbir Kapoor and Anushka sharma',
                      'Siddharth Malhotra and katrina kaif', 'Kartik aryan and Nusrat barucha',
@@ -168,7 +168,7 @@ def game_chooser(game_number):
         random_number = random.randint(0, 29)
         print("\nQuestion Number :" + str(random_number + 1))
         print('\n'+questions[random_number])
-        speak.Speak('\nYOUR QUESTION IS. '+questions[random_number])
+        speak.Speak('\nYOUR QUESTION IS. ')
         response = input("\nAnswer is Correct or Wrong: \nY\t\tN")
         return response_return(response)
 
@@ -207,6 +207,7 @@ def game_chooser(game_number):
         mixer.music.load(
             "C:/Users/ADAMAYA SHARMA/PycharmProjects/monoply_fun_and_learn/Golden Era/" + questions[random_number])
         print("\nplaying song " + str(random_number + 1))
+        speak.Speak("Identify the song")
         mixer.music.play()
 
         response = input("\nAnswer is Correct or Wrong: \nY\t\tN")
@@ -241,7 +242,7 @@ def game_chooser(game_number):
         random_number = random.randint(0, 29)
         print("\nDialogue Number :" + str(random_number + 1)+'\n')
         print(questions[random_number])
-        speak.Speak('\nYOUR QUESTION IS. ' + questions[random_number])
+        speak.Speak('\nYOUR QUESTION IS. ')
         response = input("\nAnswer is Correct or Wrong: \nY\t\tN")
         return response_return(response)
 
@@ -321,7 +322,6 @@ def game_chooser(game_number):
         print("\nGame " + str(game_number) + ": Guess the Movie with the help of Music\n")
         speak.Speak("\nGame " + str(game_number) + ": Guess the Movie with the help of Music\n")
         print("Description: Identify the movie with the help of music\nNote: - Music will be played once")
-        speak.Speak("Description: Identify the movie with the help of music\nNote: - Music will be played once")
         questions = ['1._Hawa Hawa_ (Full Video Song) _ Mubarakan _ Anil K(MP3_160K)-[AudioTrimmer.com].mp3',
                      '2._Main Aai Hoon U.P. Bihar Lootne_ Lyrical Video __(MP3_160K)-[AudioTrimmer.com].mp3',
                      '3.A.R. Rahman - Tere Bina Best Video_ Guru_Aishwarya(MP3_160K)-[AudioTrimmer.com].mp3',
@@ -368,6 +368,7 @@ def game_chooser(game_number):
     elif game_number == 15:
         print("\nGame " + str(game_number) + ": The LOGO Quiz")
         speak.Speak("\nGame " + str(game_number) + ": The LOGO Quiz")
+        speak.Speak("identify the logo")
         questions = ['adobe.png', 'Airtel.jpg', 'alienware.jpg', 'apple.jpg', 'bentley.jpg', 'blackberry.png',
                      'Boeing.png',
                      'Cisco.png', 'cn_logo.jpg', 'DHL.png', 'dodge.png', 'dove.png', 'dreamworks.jpg', 'EA Sports.png',
@@ -385,11 +386,12 @@ def game_chooser(game_number):
     # Technology and Famous Personality: THE FAMOUS PERSONALITY
     elif game_number == 16:
         print("\nGame " + str(game_number) + ": THE FAMOUS PERSONALITY")
+        speak.Speak("identify the name of the famous personality given in the following image")
         speak.Speak("\nGame " + str(game_number) + ": THE FAMOUS PERSONALITY")
         questions = ['Albert Einstein.jpg', 'denial redcliff.jpg', 'dr APJ Abdul Kalam.jpg', 'Elon Musk.jpg',
                      'Jack ma.jpg','jenifer lawrence.jpg', 'jk rowling.jpg', 'leonardo dicaprio.jpg',
                      'martin luthor king junior.jpg','messi.jpg','muhammad ali.jpg','Nicola Tesla.png','pele.png',
-                     'robert downy jr.png']
+                     'robert downy jr.jpg']
         random_number = random.randint(0, 13)
         image = PIL.Image.open(
             "C:/Users/ADAMAYA SHARMA/PycharmProjects/monoply_fun_and_learn/Famous Personality/" + questions[
@@ -434,7 +436,7 @@ def game_chooser(game_number):
         random_number = random.randint(0, 29)
         print("\nQuestion Number :" + str(random_number + 1)+'\n')
         print(questions[random_number])
-        speak.Speak("your question is. "+questions[random_number])
+        speak.Speak("your question is. ")
         response = input("\nAnswer is Correct or Wrong: \nY\t\tN")
         return response_return(response)
 
@@ -468,6 +470,7 @@ def game_chooser(game_number):
     elif game_number == 20:
         print("\nGame " + str(game_number) + ": Slogans")
         speak.Speak("\nGame " + str(game_number) + ": Slogans")
+        speak.Speak("Name the company by its tagline.")
         questions = ['TANN KI SHAKTI , MANN KI SHAKTI', 'FRESH AND JUICY', 'TASTE THE THUNDER', 'THE COMPLETE MEN',
                      'TASTE BHI , HEALTH BHI', 'BORN TOUGH', 'BEAUTY BAR OF FILM STARS', 'DESH KA NAMAK',
                      'DIMAG KI BATTI JALA DE', 'BAJATE RAHO', 'ZINDAGI K SATH BHI, ZINDAGI K BAAD BHI',
@@ -479,7 +482,7 @@ def game_chooser(game_number):
                      'DISCOVER GREAT PLACES TO EAT AROUND YOU',
                      'GALE KI KHARACH KA FIRST AID', 'THANDA THANDA COOL COOL', 'THE KING OF GOOD TIMES', 'TAKE CARE'
                      ]
-        random_number = random.randint(0, 31)
+        random_number = random.randint(0, 25)
         print("\nQuestion Number :" + str(random_number + 1)+'\n')
         print(questions[random_number])
         speak.Speak("your question is. "+questions[random_number])
@@ -514,7 +517,7 @@ def game_chooser(game_number):
         random_number = random.randint(0, 19)
         print("\nQuestion Number :" + str(random_number + 1)+'\n')
         print(questions[random_number])
-        speak.Speak("your question is. "+questions[random_number])
+        speak.Speak("your question is. ")
         response = input("\nAnswer is Correct or Wrong: \nY\t\tN")
         return response_return(response)
 
@@ -775,7 +778,7 @@ while True:
     speak = Dispatch("SAPI.SpVoice")
     speak.Speak("Description and rules of the games:\n. Each player will play 1 round only. "
                 "\n. According to their dice number game will be organised. \n. If a player wins any game and another"
-                " player arrives at that game then 1 by fourth points will be added to 1st winner of that particular game.\n"
+                " player arrives at that game then 1by fourth points will be added to 1st winner of that particular game.\n"
                 " lets begin the game!")
     while True:
         for player in range(1, number_of_players + 1):
